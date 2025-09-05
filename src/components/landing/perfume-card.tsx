@@ -1,0 +1,55 @@
+import Image from 'next/image';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+
+export type Perfume = {
+  name: string;
+  description: string;
+  imageUrl: string;
+  imageHint: string;
+};
+
+type PerfumeCardProps = {
+  perfume: Perfume;
+};
+
+export default function PerfumeCard({ perfume }: PerfumeCardProps) {
+  const { name, description, imageUrl, imageHint } = perfume;
+  return (
+    <Card className="flex h-full transform flex-col overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
+      <CardHeader className="p-0">
+        <div className="relative h-64 w-full">
+          <Image
+            src={imageUrl}
+            alt={`Image of ${name}`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            data-ai-hint={imageHint}
+          />
+        </div>
+      </CardHeader>
+      <CardContent className="flex-1 p-6">
+        <CardTitle className="font-headline text-2xl">{name}</CardTitle>
+        <CardDescription className="mt-2">{description}</CardDescription>
+      </CardContent>
+      <CardFooter className="p-6 pt-0">
+        <Link href="mailto:contact@itar.com" className="w-full" prefetch={false}>
+          <Button
+            className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
+          >
+            Buy Now
+          </Button>
+        </Link>
+      </CardFooter>
+    </Card>
+  );
+}
