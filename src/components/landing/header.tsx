@@ -52,14 +52,11 @@ export default function Header() {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link
-                  href="#home"
-                  className="px-4 py-2 text-sm font-medium hover:underline"
-                >
+              <Link href="#home" legacyBehavior passHref>
+                <NavigationMenuLink className="px-4 py-2 text-sm font-medium hover:underline">
                   Home
-                </Link>
-              </NavigationMenuLink>
+                </NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger className="text-sm font-medium">Shop</NavigationMenuTrigger>
@@ -89,9 +86,9 @@ export default function Header() {
                       ))}
                     </ul>
                   </div>
-                  <div>
+                  <div className="col-span-1">
                     <h3 className="font-semibold text-sm mb-2">Collections</h3>
-                     <ul className="space-y-1">
+                     <ul className="space-y-1 h-48 flex flex-col flex-wrap">
                       {collections.map((item) => (
                         <li key={item.title}>
                           <NavigationMenuLink asChild>
@@ -105,24 +102,18 @@ export default function Header() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-               <NavigationMenuLink asChild>
-                <Link
-                  href="#about"
-                  className="px-4 py-2 text-sm font-medium hover:underline"
-                >
+              <Link href="#about" legacyBehavior passHref>
+                <NavigationMenuLink className="px-4 py-2 text-sm font-medium hover:underline">
                   About
-                </Link>
-              </NavigationMenuLink>
+                </NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
              <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link
-                  href="#contact"
-                  className="px-4 py-2 text-sm font-medium hover:underline"
-                >
+              <Link href="#contact" legacyBehavior passHref>
+                <NavigationMenuLink className="px-4 py-2 text-sm font-medium hover:underline">
                   Contact
-                </Link>
-              </NavigationMenuLink>
+                </NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
