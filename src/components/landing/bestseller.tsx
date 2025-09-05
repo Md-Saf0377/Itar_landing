@@ -16,7 +16,7 @@ const perfumes: Perfume[] = [
     {
         name: 'Crystal Saffron',
         description: 'A spicy and oriental fragrance with notes of saffron, musk, and ambroxan.',
-        imageUrl: 'https://picsum.photos/400/500?random=6',
+        imageUrl: 'https://i.pinimg.com/originals/ce/4b/fb/ce4bfb8fbe402e634787671571db7af5.png',
         imageHint: 'perfume bottle',
     },
      {
