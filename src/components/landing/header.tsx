@@ -13,7 +13,6 @@ import {
 import React from 'react';
 import { cn } from '@/lib/utils';
 
-
 const bestsellers = [
     { title: "Radical Rose", href: "#bestsellers" },
     { title: "Vanilla Powder", href: "#bestsellers" },
@@ -30,6 +29,8 @@ const categories = [
     { title: "Discovery Set", href: "#categories" },
 ]
 
+const transparentNavStyle = "border border-black/20 bg-white/10 backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/20 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground data-[active]:bg-accent/50 data-[state=open]:bg-accent/50";
+
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 px-4 py-2 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-6">
@@ -42,17 +43,17 @@ export default function Header() {
           <NavigationMenuList>
             <NavigationMenuItem>
               <Link href="#home" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
                   Home
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
+              <NavigationMenuTrigger className={transparentNavStyle}>Shop</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <div className="grid w-[450px] grid-cols-2 gap-4 p-4">
                   <div>
-                    <h3 className="mb-2 text-sm font-semibold">Best Seller</h3>
+                    <h3 className="mb-2 text-sm font-semibold">Bestsellers</h3>
                     <ul className="space-y-1">
                       {bestsellers.map((item) => (
                         <ListItem key={item.title} href={item.href} title={item.title} />
@@ -72,14 +73,14 @@ export default function Header() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="#about" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
                   About
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
              <NavigationMenuItem>
               <Link href="#contact" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
                   Contact
                 </NavigationMenuLink>
               </Link>
