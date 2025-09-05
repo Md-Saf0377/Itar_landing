@@ -20,6 +20,8 @@ export default function CartSheet() {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
   const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
+  const checkoutMailtoLink = `mailto:contact@itar.com?subject=Order Inquiry&body=I would like to purchase the following items:%0A%0A${cartItems.map(item => `${item.quantity}x ${item.name}`).join('%0A')}%0A%0APlease provide me with payment and shipping details.`;
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -41,50 +43,53 @@ export default function CartSheet() {
           <>
             <div className="flex-1 overflow-y-auto pr-4">
               <ul className="space-y-4">
-                {cartItems.map((item) => (
-                  <li key={item.name} className="flex items-start gap-4">
-                    <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-md">
-                      <Image
-                        src={item.imageUrl}
-                        alt={item.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold">{item.name}</h3>
-                      <div className="mt-2 flex items-center gap-2">
-                        <Input
-                          type="number"
-                          min="1"
-                          value={item.quantity}
-                          onChange={(e) =>
-                            updateQuantity(item.name, parseInt(e.target.value, 10))
-                          }
-                          className="h-8 w-16"
+                {cartItems.map((item) => {
+                  const buyNowMailtoLink = `mailto:contact@itar.com?subject=Order for ${encodeURIComponent(item.name)}&body=I would like to purchase ${encodeURIComponent(item.quantity)}x ${encodeURIComponent(item.name)}. Please provide me with payment and shipping details.`;
+                  return (
+                    <li key={item.name} className="flex items-start gap-4">
+                      <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-md">
+                        <Image
+                          src={item.imageUrl}
+                          alt={item.name}
+                          fill
+                          className="object-cover"
                         />
-                         <Button
-                          variant="ghost"
-                          size="icon"
-                          onClick={() => removeFromCart(item.name)}
-                          aria-label={`Remove ${item.name}`}
-                        >
-                          <Trash2 className="h-4 w-4 text-destructive" />
-                        </Button>
-                        <Link href="/checkout" passHref>
-                           <Button variant="outline" size="sm" className="border border-black/20 bg-white/20 text-foreground backdrop-blur-sm">Buy Now</Button>
-                        </Link>
                       </div>
-                    </div>
-                  </li>
-                ))}
+                      <div className="flex-1">
+                        <h3 className="font-semibold">{item.name}</h3>
+                        <div className="mt-2 flex items-center gap-2">
+                          <Input
+                            type="number"
+                            min="1"
+                            value={item.quantity}
+                            onChange={(e) =>
+                              updateQuantity(item.name, parseInt(e.target.value, 10))
+                            }
+                            className="h-8 w-16"
+                          />
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => removeFromCart(item.name)}
+                            aria-label={`Remove ${item.name}`}
+                          >
+                            <Trash2 className="h-4 w-4 text-destructive" />
+                          </Button>
+                          <a href={buyNowMailtoLink}>
+                            <Button variant="outline" size="sm" className="border border-black/20 bg-white/20 text-foreground backdrop-blur-sm" asChild={false}>Buy Now</Button>
+                          </a>
+                        </div>
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             <Separator />
             <SheetFooter>
-                <Link href="/checkout" passHref className="w-full">
+                <a href={checkoutMailtoLink} className="w-full">
                     <Button className="w-full" size="lg">Checkout</Button>
-                </Link>
+                </a>
             </SheetFooter>
           </>
         ) : (

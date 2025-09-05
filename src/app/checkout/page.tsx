@@ -6,10 +6,10 @@ export default function CheckoutPage() {
     <div className="flex min-h-screen flex-col items-center justify-center bg-background text-foreground">
       <div className="max-w-md rounded-lg bg-card p-8 text-center shadow-lg">
         <h1 className="mb-4 font-headline text-4xl font-bold">
-          Checkout
+          Thank You!
         </h1>
         <p className="mb-6 text-muted-foreground">
-          This is a placeholder for the checkout process.
+          To purchase items, please use the "Buy Now" buttons which will open an email to complete your order.
         </p>
         <Link href="/">
           <Button>

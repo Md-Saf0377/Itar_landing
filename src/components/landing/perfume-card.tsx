@@ -11,7 +11,6 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/context/cart-context';
-import Link from 'next/link';
 
 export type Perfume = {
   name: string;
@@ -27,6 +26,8 @@ type PerfumeCardProps = {
 export default function PerfumeCard({ perfume }: PerfumeCardProps) {
   const { name, description, imageUrl, imageHint } = perfume;
   const { addToCart } = useCart();
+
+  const mailtoLink = `mailto:contact@itar.com?subject=Order for ${encodeURIComponent(name)}&body=I would like to purchase ${encodeURIComponent(name)}. Please provide me with payment and shipping details.`;
 
   return (
     <Card className="flex h-full transform flex-col overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
@@ -53,14 +54,15 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
           >
             Add to Cart
           </Button>
-          <Link href="/checkout" passHref className="w-full">
+          <a href={mailtoLink} className="w-full">
             <Button
                 variant="outline"
                 className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm"
+                asChild={false} 
             >
                 Buy Now
             </Button>
-          </Link>
+          </a>
       </CardFooter>
     </Card>
   );
