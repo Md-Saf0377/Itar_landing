@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/context/cart-context';
+import Link from 'next/link';
 
 export type Perfume = {
   name: string;
@@ -45,13 +46,21 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
         <CardTitle className="font-headline text-2xl">{name}</CardTitle>
         <CardDescription className="mt-2">{description}</CardDescription>
       </CardContent>
-      <CardFooter className="p-6 pt-0">
+      <CardFooter className="flex gap-2 p-6 pt-0">
           <Button
             onClick={() => addToCart(perfume)}
             className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/30"
           >
             Add to Cart
           </Button>
+          <Link href="/checkout" passHref className="w-full">
+            <Button
+                variant="outline"
+                className="w-full"
+            >
+                Buy Now
+            </Button>
+          </Link>
       </CardFooter>
     </Card>
   );

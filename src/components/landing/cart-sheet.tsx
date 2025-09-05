@@ -12,6 +12,7 @@ import {
 import { useCart } from "@/context/cart-context";
 import { ShoppingCart, Trash2 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
 
@@ -70,6 +71,9 @@ export default function CartSheet() {
                         >
                           <Trash2 className="h-4 w-4 text-destructive" />
                         </Button>
+                        <Link href="/checkout" passHref>
+                           <Button variant="outline" size="sm">Buy Now</Button>
+                        </Link>
                       </div>
                     </div>
                   </li>
@@ -78,7 +82,9 @@ export default function CartSheet() {
             </div>
             <Separator />
             <SheetFooter>
-              <Button className="w-full" size="lg">Checkout</Button>
+                <Link href="/checkout" passHref className="w-full">
+                    <Button className="w-full" size="lg">Checkout</Button>
+                </Link>
             </SheetFooter>
           </>
         ) : (
