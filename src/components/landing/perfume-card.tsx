@@ -44,7 +44,7 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
       <CardFooter className="p-6 pt-0">
         <Link href="mailto:contact@itar.com" className="w-full" prefetch={false}>
           <Button
-            className="w-full border border-white/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:border-white/30 hover:bg-white/30"
+            className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/30"
           >
             Buy Now
           </Button>
