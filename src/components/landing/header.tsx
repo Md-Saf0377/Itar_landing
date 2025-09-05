@@ -29,7 +29,7 @@ const categories = [
     { title: "Discovery Set", href: "#categories" },
 ]
 
-const transparentNavStyle = "border border-black/20 bg-white/10 backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/20 hover:text-foreground focus:bg-accent focus:text-accent-foreground data-[active]:bg-accent/50 data-[state=open]:bg-accent/50";
+const transparentNavStyle = "border border-black/20 bg-white/10 backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/20 focus:bg-accent focus:text-accent-foreground data-[active]:bg-accent/50 data-[state=open]:bg-accent/50";
 
 export default function Header() {
   return (
