@@ -9,8 +9,16 @@ export default function HeroSection() {
         src="https://picsum.photos/1920/1080"
         alt="Elegant perfume display"
         fill
-        className="object-cover"
+        className="hidden object-cover md:block"
         data-ai-hint="perfume display"
+        priority
+      />
+      <Image
+        src="https://picsum.photos/600/800"
+        alt="Flowers"
+        fill
+        className="block object-cover md:hidden"
+        data-ai-hint="flowers"
         priority
       />
       <div className="absolute inset-0 bg-black/50" />
