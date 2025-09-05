@@ -47,13 +47,13 @@ export default function Header() {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <Link href="#home" legacyBehavior passHref>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-black hover:text-white")}>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     Home
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent hover:bg-black hover:text-white">Shop</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-transparent hover:bg-black hover:text-white active:bg-black active:text-white">Shop</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid w-[450px] grid-cols-2 gap-4 p-4">
                     <div>
@@ -77,14 +77,14 @@ export default function Header() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <Link href="#about" legacyBehavior passHref>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-black hover:text-white")}>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     About
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
                <NavigationMenuItem>
                 <Link href="#contact" legacyBehavior passHref>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-black hover:text-white")}>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     Contact
                   </NavigationMenuLink>
                 </Link>

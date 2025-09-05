@@ -56,7 +56,7 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
             </Button>
             <Button
                 variant="outline"
-                className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm hover:bg-black hover:text-white"
+                className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm hover:bg-black hover:text-white active:bg-black active:text-white"
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();

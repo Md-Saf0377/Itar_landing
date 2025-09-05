@@ -77,7 +77,7 @@ export default function CartSheet() {
                             <Trash2 className="h-4 w-4 text-destructive" />
                           </Button>
                           <a href={buyNowMailtoLink} onClick={(e) => e.stopPropagation()}>
-                            <Button variant="outline" size="sm" className="border border-black/20 bg-white/20 text-foreground backdrop-blur-sm hover:bg-black hover:text-white" asChild={false}>Buy Now</Button>
+                            <Button variant="outline" size="sm" className="border border-black/20 bg-white/20 text-foreground backdrop-blur-sm hover:bg-black hover:text-white active:bg-black active:text-white" asChild={false}>Buy Now</Button>
                           </a>
                         </div>
                       </div>
