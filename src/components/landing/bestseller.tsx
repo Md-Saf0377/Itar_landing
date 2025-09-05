@@ -25,6 +25,12 @@ const perfumes: Perfume[] = [
         imageUrl: 'https://picsum.photos/400/500?random=10',
         imageHint: 'itar bottle',
     },
+    {
+        name: 'Pexels Passion',
+        description: 'A captivating aroma of wild berries and jasmine.',
+        imageUrl: 'https://images.pexels.com/photos/1961789/pexels-photo-1961789.jpeg?cs=srgb&dl=pexels-valeriya-1961789.jpg&fm=jpg',
+        imageHint: 'perfume bottle flowers',
+    }
 ];
 
 export default function BestsellerSection() {
