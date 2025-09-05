@@ -10,7 +10,7 @@ const perfumes: Perfume[] = [
     {
         name: 'Vanilla Powder',
         description: 'A warm and comforting scent of vanilla, coconut, and white musk.',
-        imageUrl: 'https://picsum.photos/400/500?random=5',
+        imageUrl: 'https://images.pexels.com/photos/16057236/pexels-photo-16057236/free-photo-of-close-up-of-chanel-perfume.jpeg',
         imageHint: 'perfume bottle',
     },
     {
