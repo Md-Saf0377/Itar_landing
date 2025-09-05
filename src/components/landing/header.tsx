@@ -48,9 +48,11 @@ const collections = [
 ]
 
 export default function Header() {
-  const collectionMidpoint = Math.ceil(collections.length / 2);
-  const collectionsCol1 = collections.slice(0, collectionMidpoint);
-  const collectionsCol2 = collections.slice(collectionMidpoint);
+  const collectionsColSize = Math.ceil(collections.length / 3);
+  const collectionsCol1 = collections.slice(0, collectionsColSize);
+  const collectionsCol2 = collections.slice(collectionsColSize, collectionsColSize * 2);
+  const collectionsCol3 = collections.slice(collectionsColSize * 2);
+
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 px-4 py-2 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-6">
@@ -71,7 +73,7 @@ export default function Header() {
             <NavigationMenuItem>
               <NavigationMenuTrigger className="text-sm font-medium">Shop</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid w-[600px] grid-cols-3 gap-4 p-4">
+                <div className="grid w-[750px] grid-cols-4 gap-4 p-4">
                   <div>
                     <h3 className="font-semibold text-sm mb-2">Best Seller</h3>
                     <ul className="space-y-1">
@@ -88,9 +90,9 @@ export default function Header() {
                       ))}
                     </ul>
                   </div>
-                  <div>
+                  <div className="col-span-2">
                     <h3 className="font-semibold text-sm mb-2">Collections</h3>
-                    <div className="grid grid-cols-2 gap-x-4">
+                    <div className="grid grid-cols-3 gap-x-4">
                        <ul className="space-y-1">
                         {collectionsCol1.map((item) => (
                           <ListItem key={item.title} href={item.href} title={item.title} />
@@ -98,6 +100,11 @@ export default function Header() {
                       </ul>
                       <ul className="space-y-1">
                         {collectionsCol2.map((item) => (
+                          <ListItem key={item.title} href={item.href} title={item.title} />
+                        ))}
+                      </ul>
+                       <ul className="space-y-1">
+                        {collectionsCol3.map((item) => (
                           <ListItem key={item.title} href={item.href} title={item.title} />
                         ))}
                       </ul>
