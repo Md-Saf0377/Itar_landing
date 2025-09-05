@@ -31,6 +31,9 @@ const categories = [
 ]
 
 const collections = [
+    { title: "Midnight Bloom", href: "#collection" },
+    { title: "Sunkissed Citrus", href: "#collection" },
+    { title: "Velvet Rose", href: "#collection" },
     { title: "Vanilla Powder", href: "#collection" },
     { title: "Crystal Saffron", href: "#collection" },
     { title: "Radical Rose", href: "#collection" },
