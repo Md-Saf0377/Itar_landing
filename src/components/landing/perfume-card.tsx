@@ -26,7 +26,7 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
 
   return (
     <Link href={`/perfume/${encodeURIComponent(name)}`} className="flex">
-      <Card className="flex h-full transform flex-col overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
+      <Card className="flex h-full w-full transform flex-col overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
         <CardHeader className="p-0">
           <div className="relative h-64 w-full">
             <Image
