@@ -72,7 +72,7 @@ export default function CartSheet() {
                           <Trash2 className="h-4 w-4 text-destructive" />
                         </Button>
                         <Link href="/checkout" passHref>
-                           <Button variant="outline" size="sm">Buy Now</Button>
+                           <Button variant="outline" size="sm" className="border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/30">Buy Now</Button>
                         </Link>
                       </div>
                     </div>
