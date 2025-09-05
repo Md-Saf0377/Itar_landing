@@ -1,4 +1,6 @@
 import AboutSection from '@/components/landing/about';
+import BestsellerSection from '@/components/landing/bestseller';
+import CategoriesSection from '@/components/landing/categories';
 import CollectionSection from '@/components/landing/collection';
 import ContactSection from '@/components/landing/contact';
 import Footer from '@/components/landing/footer';
@@ -12,6 +14,8 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
         <AboutSection />
+        <BestsellerSection />
+        <CategoriesSection />
         <CollectionSection />
         <ContactSection />
       </main>
