@@ -19,6 +19,12 @@ const perfumes: Perfume[] = [
         imageUrl: 'https://picsum.photos/400/500?random=6',
         imageHint: 'perfume bottle',
     },
+     {
+        name: 'Oud Wood',
+        description: 'An exotic and smoky scent of rare oud, sandalwood, and vetiver.',
+        imageUrl: 'https://picsum.photos/400/500?random=10',
+        imageHint: 'itar bottle',
+    },
 ];
 
 export default function BestsellerSection() {
@@ -35,7 +41,7 @@ export default function BestsellerSection() {
                         </p>
                     </div>
                 </div>
-                <div className="mx-auto grid grid-cols-1 gap-8 pt-12 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mx-auto grid grid-cols-1 gap-8 pt-12 sm:grid-cols-2 lg:grid-cols-4">
                     {perfumes.map((perfume) => (
                         <PerfumeCard key={perfume.name} perfume={perfume} />
                     ))}
