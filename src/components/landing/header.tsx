@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet';
 import { Button } from '../ui/button';
 import CartSheet from './cart-sheet';
 
@@ -47,13 +47,13 @@ export default function Header() {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <Link href="#home" legacyBehavior passHref>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-transparent")}>
                     Home
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className={transparentNavStyle}>Shop</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-transparent hover:bg-transparent">Shop</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid w-[450px] grid-cols-2 gap-4 p-4">
                     <div>
@@ -77,14 +77,14 @@ export default function Header() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <Link href="#about" legacyBehavior passHref>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-transparent")}>
                     About
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
                <NavigationMenuItem>
                 <Link href="#contact" legacyBehavior passHref>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-transparent")}>
                     Contact
                   </NavigationMenuLink>
                 </Link>
@@ -103,6 +103,10 @@ export default function Header() {
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="right">
+                  <SheetHeader>
+                    <SheetTitle>Navigation</SheetTitle>
+                    <SheetDescription>Select a page to navigate to.</SheetDescription>
+                  </SheetHeader>
                   <div className="grid gap-4 p-4">
                     <Link href="#home" className="text-lg font-medium hover:underline" prefetch={false}>
                       Home
