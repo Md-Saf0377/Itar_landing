@@ -54,15 +54,17 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
             >
               Add to Cart
             </Button>
-            <a href={mailtoLink} className="w-full" onClick={(e) => { e.stopPropagation(); }}>
-              <Button
-                  variant="outline"
-                  className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm"
-                  asChild={false} 
-              >
-                  Buy Now
-              </Button>
-            </a>
+            <Button
+                variant="outline"
+                className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.location.href = mailtoLink;
+                }}
+            >
+                Buy Now
+            </Button>
         </CardFooter>
       </Card>
     </Link>
