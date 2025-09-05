@@ -32,9 +32,9 @@ const categories = [
     { title: "Discovery Set", href: "#categories" },
 ]
 
-const transparentNavStyle = "border border-black/20 bg-white/10 backdrop-blur-sm focus:bg-accent focus:text-accent-foreground data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 text-black";
-
 export default function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 px-4 py-2 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-6">
       <div className="container mx-auto flex h-14 items-center justify-between">
@@ -47,13 +47,13 @@ export default function Header() {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <Link href="#home" legacyBehavior passHref>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-transparent")}>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
                     Home
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent hover:bg-transparent">Shop</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="bg-transparent">Shop</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid w-[450px] grid-cols-2 gap-4 p-4">
                     <div>
@@ -77,14 +77,14 @@ export default function Header() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <Link href="#about" legacyBehavior passHref>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-transparent")}>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
                     About
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
                <NavigationMenuItem>
                 <Link href="#contact" legacyBehavior passHref>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent hover:bg-transparent")}>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent")}>
                     Contact
                   </NavigationMenuLink>
                 </Link>
@@ -95,7 +95,7 @@ export default function Header() {
         <div className="flex items-center gap-2">
             <CartSheet />
              <div className="md:hidden">
-              <Sheet>
+              <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon">
                     <Menu className="h-6 w-6" />
@@ -108,19 +108,19 @@ export default function Header() {
                     <SheetDescription>Select a page to navigate to.</SheetDescription>
                   </SheetHeader>
                   <div className="grid gap-4 p-4">
-                    <Link href="#home" className="text-lg font-medium hover:underline" prefetch={false}>
+                    <Link href="#home" className="text-lg font-medium hover:underline" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
                       Home
                     </Link>
-                    <Link href="#bestsellers" className="text-lg font-medium hover:underline" prefetch={false}>
+                    <Link href="#bestsellers" className="text-lg font-medium hover:underline" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
                       Bestsellers
                     </Link>
-                    <Link href="#categories" className="text-lg font-medium hover:underline" prefetch={false}>
+                    <Link href="#categories" className="text-lg font-medium hover:underline" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
                       Categories
                     </Link>
-                     <Link href="#about" className="text-lg font-medium hover:underline" prefetch={false}>
+                     <Link href="#about" className="text-lg font-medium hover:underline" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
                       About
                     </Link>
-                     <Link href="#contact" className="text-lg font-medium hover:underline" prefetch={false}>
+                     <Link href="#contact" className="text-lg font-medium hover:underline" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
                       Contact
                     </Link>
                   </div>
