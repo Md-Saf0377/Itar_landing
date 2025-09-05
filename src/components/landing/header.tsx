@@ -10,6 +10,8 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import React from 'react';
+import { cn } from '@/lib/utils';
 
 
 const bestsellers = [
@@ -67,11 +69,7 @@ export default function Header() {
                     <h3 className="font-semibold text-sm mb-2">Best Seller</h3>
                     <ul className="space-y-1">
                       {bestsellers.map((item) => (
-                        <li key={item.title}>
-                           <NavigationMenuLink asChild>
-                            <Link href={item.href} className="text-sm hover:underline">{item.title}</Link>
-                          </NavigationMenuLink>
-                        </li>
+                        <ListItem key={item.title} href={item.href} title={item.title} />
                       ))}
                     </ul>
                   </div>
@@ -79,11 +77,7 @@ export default function Header() {
                     <h3 className="font-semibold text-sm mb-2">Categories</h3>
                     <ul className="space-y-1">
                       {categories.map((item) => (
-                        <li key={item.title}>
-                          <NavigationMenuLink asChild>
-                            <Link href={item.href} className="text-sm hover:underline">{item.title}</Link>
-                          </NavigationMenuLink>
-                        </li>
+                         <ListItem key={item.title} href={item.href} title={item.title} />
                       ))}
                     </ul>
                   </div>
@@ -91,11 +85,7 @@ export default function Header() {
                     <h3 className="font-semibold text-sm mb-2">Collections</h3>
                      <ul className="space-y-1 h-48 flex flex-col flex-wrap">
                       {collections.map((item) => (
-                        <li key={item.title}>
-                          <NavigationMenuLink asChild>
-                            <Link href={item.href} className="text-sm hover:underline">{item.title}</Link>
-                          </NavigationMenuLink>
-                        </li>
+                        <ListItem key={item.title} href={item.href} title={item.title} />
                       ))}
                     </ul>
                   </div>
@@ -122,3 +112,30 @@ export default function Header() {
     </header>
   );
 }
+
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";
