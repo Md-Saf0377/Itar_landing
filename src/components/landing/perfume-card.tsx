@@ -1,6 +1,7 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   Card,
   CardContent,
@@ -11,13 +12,7 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/context/cart-context';
-
-export type Perfume = {
-  name: string;
-  description: string;
-  imageUrl: string;
-  imageHint: string;
-};
+import type { Perfume } from '@/lib/perfumes';
 
 type PerfumeCardProps = {
   perfume: Perfume;
@@ -30,40 +25,46 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
   const mailtoLink = `mailto:contact@itar.com?subject=Order for ${encodeURIComponent(name)}&body=I would like to purchase ${encodeURIComponent(name)}. Please provide me with payment and shipping details.`;
 
   return (
-    <Card className="flex h-full transform flex-col overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
-      <CardHeader className="p-0">
-        <div className="relative h-64 w-full">
-          <Image
-            src={imageUrl}
-            alt={`Image of ${name}`}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            data-ai-hint={imageHint}
-          />
-        </div>
-      </CardHeader>
-      <CardContent className="flex-1 p-6">
-        <CardTitle className="font-headline text-2xl">{name}</CardTitle>
-        <CardDescription className="mt-2">{description}</CardDescription>
-      </CardContent>
-      <CardFooter className="flex gap-2 p-6 pt-0">
-          <Button
-            onClick={() => addToCart(perfume)}
-            className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/30"
-          >
-            Add to Cart
-          </Button>
-          <a href={mailtoLink} className="w-full">
+    <Link href={`/perfume/${encodeURIComponent(name)}`} className="flex">
+      <Card className="flex h-full transform flex-col overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
+        <CardHeader className="p-0">
+          <div className="relative h-64 w-full">
+            <Image
+              src={imageUrl}
+              alt={`Image of ${name}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              data-ai-hint={imageHint}
+            />
+          </div>
+        </CardHeader>
+        <CardContent className="flex-1 p-6">
+          <CardTitle className="font-headline text-2xl">{name}</CardTitle>
+          <CardDescription className="mt-2">{description}</CardDescription>
+        </CardContent>
+        <CardFooter className="flex gap-2 p-6 pt-0">
             <Button
-                variant="outline"
-                className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm"
-                asChild={false} 
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                addToCart(perfume);
+              }}
+              className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/30"
             >
-                Buy Now
+              Add to Cart
             </Button>
-          </a>
-      </CardFooter>
-    </Card>
+            <a href={mailtoLink} className="w-full" onClick={(e) => { e.stopPropagation(); }}>
+              <Button
+                  variant="outline"
+                  className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm"
+                  asChild={false} 
+              >
+                  Buy Now
+              </Button>
+            </a>
+        </CardFooter>
+      </Card>
+    </Link>
   );
 }

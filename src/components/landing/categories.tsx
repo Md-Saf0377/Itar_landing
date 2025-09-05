@@ -1,31 +1,8 @@
-import PerfumeCard, { type Perfume } from '@/components/landing/perfume-card';
 
-const perfumes: Perfume[] = [
-    {
-        name: 'Extrait de Parfum',
-        description: 'The most concentrated and long-lasting form of fragrance.',
-        imageUrl: 'https://picsum.photos/400/500?random=7',
-        imageHint: 'perfume bottle',
-    },
-    {
-        name: 'Eau de Parfum',
-        description: 'A lighter concentration of fragrance, perfect for everyday wear.',
-        imageUrl: 'https://picsum.photos/400/500?random=8',
-        imageHint: 'perfume bottle',
-    },
-    {
-        name: 'Hand & Body',
-        description: 'Luxurious scented products for your skin.',
-        imageUrl: 'https://picsum.photos/400/500?random=9',
-        imageHint: 'body lotion',
-    },
-    {
-        name: 'Itar Oils',
-        description: 'Concentrated perfume oils with rich, traditional scents.',
-        imageUrl: 'https://picsum.photos/400/500?random=11',
-        imageHint: 'itar bottle',
-    },
-];
+import PerfumeCard from '@/components/landing/perfume-card';
+import { perfumes } from '@/lib/perfumes';
+
+const categoryPerfumes = perfumes.slice(5, 9);
 
 export default function CategoriesSection() {
     return (
@@ -42,7 +19,7 @@ export default function CategoriesSection() {
                     </div>
                 </div>
                 <div className="mx-auto grid grid-cols-1 gap-8 pt-12 sm:grid-cols-2 lg:grid-cols-4">
-                    {perfumes.map((perfume) => (
+                    {categoryPerfumes.map((perfume) => (
                         <PerfumeCard key={perfume.name} perfume={perfume} />
                     ))}
                 </div>

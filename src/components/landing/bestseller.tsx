@@ -1,38 +1,8 @@
 
-import PerfumeCard, { type Perfume } from '@/components/landing/perfume-card';
+import PerfumeCard from '@/components/landing/perfume-card';
+import { perfumes } from '@/lib/perfumes';
 
-const perfumes: Perfume[] = [
-    {
-        name: 'Radical Rose',
-        description: 'A mysterious blend of rose, patchouli, and labdanum.',
-        imageUrl: 'https://www.shutterstock.com/image-photo/still-life-shot-davidoff-cool-600nw-2435571775.jpg',
-        imageHint: 'perfume bottle',
-    },
-    {
-        name: 'Vanilla Powder',
-        description: 'A warm and comforting scent of vanilla, coconut, and white musk.',
-        imageUrl: 'https://images.pexels.com/photos/16057236/pexels-photo-16057236/free-photo-of-close-up-of-chanel-perfume.jpeg',
-        imageHint: 'perfume bottle',
-    },
-    {
-        name: 'Crystal Saffron',
-        description: 'A spicy and oriental fragrance with notes of saffron, musk, and ambroxan.',
-        imageUrl: 'https://i.pinimg.com/originals/ce/4b/fb/ce4bfb8fbe402e634787671571db7af5.png',
-        imageHint: 'perfume bottle',
-    },
-     {
-        name: 'Oud Wood',
-        description: 'An exotic and smoky scent of rare oud, sandalwood, and vetiver.',
-        imageUrl: 'https://cdn.pixabay.com/photo/2017/03/14/11/39/perfume-2142817_640.jpg',
-        imageHint: 'itar bottle',
-    },
-    {
-        name: 'Pexels Passion',
-        description: 'A captivating aroma of wild berries and jasmine.',
-        imageUrl: 'https://images.pexels.com/photos/1961789/pexels-photo-1961789.jpeg?cs=srgb&dl=pexels-valeriya-1961789.jpg&fm=jpg',
-        imageHint: 'perfume bottle flowers',
-    }
-];
+const bestsellerPerfumes = perfumes.slice(0, 5);
 
 export default function BestsellerSection() {
     return (
@@ -49,7 +19,7 @@ export default function BestsellerSection() {
                     </div>
                 </div>
                 <div className="mx-auto grid grid-cols-1 gap-8 pt-12 sm:grid-cols-2 lg:grid-cols-4">
-                    {perfumes.map((perfume) => (
+                    {bestsellerPerfumes.map((perfume) => (
                         <PerfumeCard key={perfume.name} perfume={perfume} />
                     ))}
                 </div>
