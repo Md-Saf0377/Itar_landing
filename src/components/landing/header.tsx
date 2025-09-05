@@ -8,6 +8,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   NavigationMenuLink,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
 
@@ -52,8 +53,8 @@ export default function Header() {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="#home" legacyBehavior passHref>
-                <NavigationMenuLink className="px-4 py-2 text-sm font-medium hover:underline">
+              <Link href="#home" passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Home
                 </NavigationMenuLink>
               </Link>
@@ -102,15 +103,15 @@ export default function Header() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="#about" legacyBehavior passHref>
-                <NavigationMenuLink className="px-4 py-2 text-sm font-medium hover:underline">
+              <Link href="#about" passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   About
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
              <NavigationMenuItem>
-              <Link href="#contact" legacyBehavior passHref>
-                <NavigationMenuLink className="px-4 py-2 text-sm font-medium hover:underline">
+              <Link href="#contact" passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Contact
                 </NavigationMenuLink>
               </Link>
