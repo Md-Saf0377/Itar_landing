@@ -46,7 +46,7 @@ export default function Header() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link href="#home" passHref>
+                <Link href="#home" passHref legacyBehavior>
                   <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
                     <a>Home</a>
                   </NavigationMenuLink>
@@ -76,14 +76,14 @@ export default function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="#about" passHref>
+                <Link href="#about" passHref legacyBehavior>
                   <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
                     <a>About</a>
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
                <NavigationMenuItem>
-                <Link href="#contact" passHref>
+                <Link href="#contact" passHref legacyBehavior>
                   <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
                     <a>Contact</a>
                   </NavigationMenuLink>
