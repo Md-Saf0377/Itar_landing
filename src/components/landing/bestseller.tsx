@@ -5,7 +5,7 @@ const perfumes: Perfume[] = [
     {
         name: 'Radical Rose',
         description: 'A mysterious blend of rose, patchouli, and labdanum.',
-        imageUrl: 'https://picsum.photos/400/500?random=13',
+        imageUrl: 'https://www.shutterstock.com/image-photo/still-life-shot-davidoff-cool-600nw-2435571775.jpg',
         imageHint: 'perfume bottle',
     },
     {
