@@ -71,9 +71,9 @@ export default function Header() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-sm font-medium">Shop</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="absolute left-0 top-0 w-full border-b bg-background/95 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/60">
+                <div className="w-screen max-w-full">
                   <div className="container mx-auto grid grid-cols-4 gap-4 p-4 py-6">
                     <div>
                       <h3 className="mb-2 text-sm font-semibold">Best Seller</h3>
