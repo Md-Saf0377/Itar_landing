@@ -73,44 +73,30 @@ export default function Header() {
             <NavigationMenuItem>
               <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="w-screen max-w-full">
-                  <div className="container mx-auto grid grid-cols-4 gap-4 p-4 py-6">
-                    <div>
-                      <h3 className="mb-2 text-sm font-semibold">Best Seller</h3>
-                      <ul className="space-y-1">
-                        {bestsellers.map((item) => (
-                          <ListItem key={item.title} href={item.href} title={item.title} />
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h3 className="mb-2 text-sm font-semibold">Categories</h3>
-                      <ul className="space-y-1">
-                        {categories.map((item) => (
-                           <ListItem key={item.title} href={item.href} title={item.title} />
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="col-span-2">
-                      <h3 className="mb-2 text-sm font-semibold">Collections</h3>
-                      <div className="grid grid-cols-3 gap-x-4">
-                         <ul className="space-y-1">
-                          {collectionsCol1.map((item) => (
-                            <ListItem key={item.title} href={item.href} title={item.title} />
-                          ))}
-                        </ul>
-                        <ul className="space-y-1">
-                          {collectionsCol2.map((item) => (
-                            <ListItem key={item.title} href={item.href} title={item.title} />
-                          ))}
-                        </ul>
-                         <ul className="space-y-1">
-                          {collectionsCol3.map((item) => (
-                            <ListItem key={item.title} href={item.href} title={item.title} />
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
+                <div className="grid w-[600px] grid-cols-3 gap-4 p-4 md:w-[700px] lg:w-[800px]">
+                  <div>
+                    <h3 className="mb-2 text-sm font-semibold">Best Seller</h3>
+                    <ul className="space-y-1">
+                      {bestsellers.map((item) => (
+                        <ListItem key={item.title} href={item.href} title={item.title} />
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="mb-2 text-sm font-semibold">Categories</h3>
+                    <ul className="space-y-1">
+                      {categories.map((item) => (
+                         <ListItem key={item.title} href={item.href} title={item.title} />
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="mb-2 text-sm font-semibold">Collections</h3>
+                    <ul className="space-y-1">
+                     {collections.map((item) => (
+                       <ListItem key={item.title} href={item.href} title={item.title} />
+                     ))}
+                   </ul>
                   </div>
                 </div>
               </NavigationMenuContent>
