@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image';
 import {
   Card,
@@ -8,7 +10,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { useCart } from '@/context/cart-context';
 
 export type Perfume = {
   name: string;
@@ -23,6 +25,8 @@ type PerfumeCardProps = {
 
 export default function PerfumeCard({ perfume }: PerfumeCardProps) {
   const { name, description, imageUrl, imageHint } = perfume;
+  const { addToCart } = useCart();
+
   return (
     <Card className="flex h-full transform flex-col overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
       <CardHeader className="p-0">
@@ -42,13 +46,12 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
         <CardDescription className="mt-2">{description}</CardDescription>
       </CardContent>
       <CardFooter className="p-6 pt-0">
-        <Link href="mailto:contact@itar.com" className="w-full" prefetch={false}>
           <Button
+            onClick={() => addToCart(perfume)}
             className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/30"
           >
-            Buy Now
+            Add to Cart
           </Button>
-        </Link>
       </CardFooter>
     </Card>
   );

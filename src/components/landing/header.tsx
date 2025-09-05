@@ -14,6 +14,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import { Button } from '../ui/button';
+import CartSheet from './cart-sheet';
 
 const bestsellers = [
     { title: "Radical Rose", href: "#bestsellers" },
@@ -31,7 +32,7 @@ const categories = [
     { title: "Discovery Set", href: "#categories" },
 ]
 
-const transparentNavStyle = "border border-black/20 bg-white/10 backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/20 focus:bg-accent focus:text-accent-foreground data-[active]:bg-accent/50 data-[state=open]:bg-accent/50";
+const transparentNavStyle = "border border-black/20 bg-white/10 backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/20 focus:bg-accent focus:text-accent-foreground data-[active]:bg-accent/50 data-[state=open]:bg-accent/50 text-black";
 
 export default function Header() {
   return (
@@ -41,7 +42,7 @@ export default function Header() {
           <Leaf className="h-6 w-6" />
           <span className="ml-2 font-headline text-lg font-semibold">Itar</span>
         </Link>
-        <div className="hidden md:flex">
+        <div className="hidden flex-1 md:flex justify-center">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -91,34 +92,37 @@ export default function Header() {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-         <div className="md:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle navigation menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right">
-              <div className="grid gap-4 p-4">
-                <Link href="#home" className="text-lg font-medium hover:underline" prefetch={false}>
-                  Home
-                </Link>
-                <Link href="#bestsellers" className="text-lg font-medium hover:underline" prefetch={false}>
-                  Bestsellers
-                </Link>
-                <Link href="#categories" className="text-lg font-medium hover:underline" prefetch={false}>
-                  Categories
-                </Link>
-                 <Link href="#about" className="text-lg font-medium hover:underline" prefetch={false}>
-                  About
-                </Link>
-                 <Link href="#contact" className="text-lg font-medium hover:underline" prefetch={false}>
-                  Contact
-                </Link>
-              </div>
-            </SheetContent>
-          </Sheet>
+        <div className="flex items-center gap-2">
+            <CartSheet />
+             <div className="md:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <Menu className="h-6 w-6" />
+                    <span className="sr-only">Toggle navigation menu</span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right">
+                  <div className="grid gap-4 p-4">
+                    <Link href="#home" className="text-lg font-medium hover:underline" prefetch={false}>
+                      Home
+                    </Link>
+                    <Link href="#bestsellers" className="text-lg font-medium hover:underline" prefetch={false}>
+                      Bestsellers
+                    </Link>
+                    <Link href="#categories" className="text-lg font-medium hover:underline" prefetch={false}>
+                      Categories
+                    </Link>
+                     <Link href="#about" className="text-lg font-medium hover:underline" prefetch={false}>
+                      About
+                    </Link>
+                     <Link href="#contact" className="text-lg font-medium hover:underline" prefetch={false}>
+                      Contact
+                    </Link>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
         </div>
       </div>
     </header>
