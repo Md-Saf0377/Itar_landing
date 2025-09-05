@@ -48,6 +48,10 @@ const collections = [
 ]
 
 export default function Header() {
+  const collectionMidpoint = Math.ceil(collections.length / 2);
+  const collectionsCol1 = collections.slice(0, collectionMidpoint);
+  const collectionsCol2 = collections.slice(collectionMidpoint);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 px-4 py-2 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-6">
       <div className="container mx-auto flex h-14 items-center justify-between">
@@ -84,13 +88,20 @@ export default function Header() {
                       ))}
                     </ul>
                   </div>
-                  <div className="col-span-1">
+                  <div>
                     <h3 className="font-semibold text-sm mb-2">Collections</h3>
-                     <ul className="space-y-1 h-48 flex flex-col flex-wrap">
-                      {collections.map((item) => (
-                        <ListItem key={item.title} href={item.href} title={item.title} />
-                      ))}
-                    </ul>
+                    <div className="grid grid-cols-2 gap-x-4">
+                       <ul className="space-y-1">
+                        {collectionsCol1.map((item) => (
+                          <ListItem key={item.title} href={item.href} title={item.title} />
+                        ))}
+                      </ul>
+                      <ul className="space-y-1">
+                        {collectionsCol2.map((item) => (
+                          <ListItem key={item.title} href={item.href} title={item.title} />
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </NavigationMenuContent>
