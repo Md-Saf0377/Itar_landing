@@ -1,3 +1,4 @@
+
 import PerfumeCard, { type Perfume } from '@/components/landing/perfume-card';
 
 const perfumes: Perfume[] = [
@@ -22,7 +23,7 @@ const perfumes: Perfume[] = [
      {
         name: 'Oud Wood',
         description: 'An exotic and smoky scent of rare oud, sandalwood, and vetiver.',
-        imageUrl: 'https://picsum.photos/400/500?random=10',
+        imageUrl: 'https://cdn.pixabay.com/photo/2017/03/14/11/39/perfume-2142817_640.jpg',
         imageHint: 'itar bottle',
     },
     {
