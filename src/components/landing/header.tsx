@@ -30,30 +30,7 @@ const categories = [
     { title: "Discovery Set", href: "#categories" },
 ]
 
-const collections = [
-    { title: "Midnight Bloom", href: "#collection" },
-    { title: "Sunkissed Citrus", href: "#collection" },
-    { title: "Velvet Rose", href: "#collection" },
-    { title: "Vanilla Powder", href: "#collection" },
-    { title: "Crystal Saffron", href: "#collection" },
-    { title: "Radical Rose", href: "#collection" },
-    { title: "Parisian Musc", href: "#collection" },
-    { title: "Falcon Leather", href: "#collection" },
-    { title: "Neroli Oranger", href: "#collection" },
-    { title: "Encens Suave", href: "#collection" },
-    { title: "French Flower", href: "#collection" },
-    { title: "Bois d'Ébène", href: "#collection" },
-    { title: "Santal Austral", href: "#collection" },
-    { title: "Cologne Cedrat", href: "#collection" },
-]
-
 export default function Header() {
-  const collectionsColSize = Math.ceil(collections.length / 3);
-  const collectionsCol1 = collections.slice(0, collectionsColSize);
-  const collectionsCol2 = collections.slice(collectionsColSize, collectionsColSize * 2);
-  const collectionsCol3 = collections.slice(collectionsColSize * 2);
-
-
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 px-4 py-2 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-6">
       <div className="container mx-auto flex h-14 items-center justify-between">
@@ -73,7 +50,7 @@ export default function Header() {
             <NavigationMenuItem>
               <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid w-[600px] grid-cols-3 gap-4 p-4 md:w-[700px] lg:w-[800px]">
+                <div className="grid w-[450px] grid-cols-2 gap-4 p-4">
                   <div>
                     <h3 className="mb-2 text-sm font-semibold">Best Seller</h3>
                     <ul className="space-y-1">
@@ -89,14 +66,6 @@ export default function Header() {
                          <ListItem key={item.title} href={item.href} title={item.title} />
                       ))}
                     </ul>
-                  </div>
-                  <div>
-                    <h3 className="mb-2 text-sm font-semibold">Collections</h3>
-                    <ul className="space-y-1">
-                     {collections.map((item) => (
-                       <ListItem key={item.title} href={item.href} title={item.title} />
-                     ))}
-                   </ul>
                   </div>
                 </div>
               </NavigationMenuContent>
