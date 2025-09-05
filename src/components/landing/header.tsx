@@ -73,41 +73,43 @@ export default function Header() {
             <NavigationMenuItem>
               <NavigationMenuTrigger className="text-sm font-medium">Shop</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid w-[750px] grid-cols-4 gap-4 p-4">
-                  <div>
-                    <h3 className="font-semibold text-sm mb-2">Best Seller</h3>
-                    <ul className="space-y-1">
-                      {bestsellers.map((item) => (
-                        <ListItem key={item.title} href={item.href} title={item.title} />
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-sm mb-2">Categories</h3>
-                    <ul className="space-y-1">
-                      {categories.map((item) => (
-                         <ListItem key={item.title} href={item.href} title={item.title} />
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="col-span-2">
-                    <h3 className="font-semibold text-sm mb-2">Collections</h3>
-                    <div className="grid grid-cols-3 gap-x-4">
-                       <ul className="space-y-1">
-                        {collectionsCol1.map((item) => (
-                          <ListItem key={item.title} href={item.href} title={item.title} />
-                        ))}
-                      </ul>
+                <div className="absolute left-0 top-0 w-screen border-b bg-background/95 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-background/60">
+                  <div className="container mx-auto grid grid-cols-4 gap-4 p-4 py-6">
+                    <div>
+                      <h3 className="mb-2 text-sm font-semibold">Best Seller</h3>
                       <ul className="space-y-1">
-                        {collectionsCol2.map((item) => (
+                        {bestsellers.map((item) => (
                           <ListItem key={item.title} href={item.href} title={item.title} />
                         ))}
                       </ul>
-                       <ul className="space-y-1">
-                        {collectionsCol3.map((item) => (
-                          <ListItem key={item.title} href={item.href} title={item.title} />
+                    </div>
+                    <div>
+                      <h3 className="mb-2 text-sm font-semibold">Categories</h3>
+                      <ul className="space-y-1">
+                        {categories.map((item) => (
+                           <ListItem key={item.title} href={item.href} title={item.title} />
                         ))}
                       </ul>
+                    </div>
+                    <div className="col-span-2">
+                      <h3 className="mb-2 text-sm font-semibold">Collections</h3>
+                      <div className="grid grid-cols-3 gap-x-4">
+                         <ul className="space-y-1">
+                          {collectionsCol1.map((item) => (
+                            <ListItem key={item.title} href={item.href} title={item.title} />
+                          ))}
+                        </ul>
+                        <ul className="space-y-1">
+                          {collectionsCol2.map((item) => (
+                            <ListItem key={item.title} href={item.href} title={item.title} />
+                          ))}
+                        </ul>
+                         <ul className="space-y-1">
+                          {collectionsCol3.map((item) => (
+                            <ListItem key={item.title} href={item.href} title={item.title} />
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
