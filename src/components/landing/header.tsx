@@ -8,7 +8,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   NavigationMenuLink,
-  navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu"
 
 
@@ -53,11 +52,14 @@ export default function Header() {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="#home" passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink asChild>
+                <Link
+                  href="#home"
+                  className="px-4 py-2 text-sm font-medium hover:underline"
+                >
                   Home
-                </NavigationMenuLink>
-              </Link>
+                </Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger className="text-sm font-medium">Shop</NavigationMenuTrigger>
@@ -68,9 +70,9 @@ export default function Header() {
                     <ul className="space-y-1">
                       {bestsellers.map((item) => (
                         <li key={item.title}>
-                          <Link href={item.href} passHref>
-                            <NavigationMenuLink className="text-sm hover:underline">{item.title}</NavigationMenuLink>
-                          </Link>
+                           <NavigationMenuLink asChild>
+                            <Link href={item.href} className="text-sm hover:underline">{item.title}</Link>
+                          </NavigationMenuLink>
                         </li>
                       ))}
                     </ul>
@@ -80,9 +82,9 @@ export default function Header() {
                     <ul className="space-y-1">
                       {categories.map((item) => (
                         <li key={item.title}>
-                          <Link href={item.href} passHref>
-                            <NavigationMenuLink className="text-sm hover:underline">{item.title}</NavigationMenuLink>
-                          </Link>
+                          <NavigationMenuLink asChild>
+                            <Link href={item.href} className="text-sm hover:underline">{item.title}</Link>
+                          </NavigationMenuLink>
                         </li>
                       ))}
                     </ul>
@@ -92,9 +94,9 @@ export default function Header() {
                      <ul className="space-y-1">
                       {collections.map((item) => (
                         <li key={item.title}>
-                          <Link href={item.href} passHref>
-                            <NavigationMenuLink className="text-sm hover:underline">{item.title}</NavigationMenuLink>
-                          </Link>
+                          <NavigationMenuLink asChild>
+                            <Link href={item.href} className="text-sm hover:underline">{item.title}</Link>
+                          </NavigationMenuLink>
                         </li>
                       ))}
                     </ul>
@@ -103,18 +105,24 @@ export default function Header() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-               <Link href="#about" passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+               <NavigationMenuLink asChild>
+                <Link
+                  href="#about"
+                  className="px-4 py-2 text-sm font-medium hover:underline"
+                >
                   About
-                </NavigationMenuLink>
-              </Link>
+                </Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
              <NavigationMenuItem>
-               <Link href="#contact" passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink asChild>
+                <Link
+                  href="#contact"
+                  className="px-4 py-2 text-sm font-medium hover:underline"
+                >
                   Contact
-                </NavigationMenuLink>
-              </Link>
+                </Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
