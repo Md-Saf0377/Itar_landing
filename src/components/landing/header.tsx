@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link';
-import { Leaf } from 'lucide-react';
+import { Leaf, Menu } from 'lucide-react';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/navigation-menu"
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
+import { Button } from '../ui/button';
 
 const bestsellers = [
     { title: "Radical Rose", href: "#bestsellers" },
@@ -35,58 +37,89 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 px-4 py-2 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-6">
       <div className="container mx-auto flex h-14 items-center justify-between">
-        <Link href="#" className="flex items-center" prefetch={false}>
+        <Link href="#" className="flex items-center mr-4" prefetch={false}>
           <Leaf className="h-6 w-6" />
           <span className="ml-2 font-headline text-lg font-semibold">Itar</span>
         </Link>
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <Link href="#home" legacyBehavior passHref>
-                <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
+        <div className="hidden md:flex">
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <Link href="#home" legacyBehavior passHref>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
+                    Home
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className={transparentNavStyle}>Shop</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid w-[450px] grid-cols-2 gap-4 p-4">
+                    <div>
+                      <h3 className="mb-2 text-sm font-semibold">Bestsellers</h3>
+                      <ul className="space-y-1">
+                        {bestsellers.map((item) => (
+                          <ListItem key={item.title} href={item.href} title={item.title} />
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="mb-2 text-sm font-semibold">Categories</h3>
+                      <ul className="space-y-1">
+                        {categories.map((item) => (
+                           <ListItem key={item.title} href={item.href} title={item.title} />
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link href="#about" legacyBehavior passHref>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
+                    About
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+               <NavigationMenuItem>
+                <Link href="#contact" legacyBehavior passHref>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
+                    Contact
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+         <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle navigation menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <div className="grid gap-4 p-4">
+                <Link href="#home" className="text-lg font-medium hover:underline" prefetch={false}>
                   Home
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className={transparentNavStyle}>Shop</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <div className="grid w-[450px] grid-cols-2 gap-4 p-4">
-                  <div>
-                    <h3 className="mb-2 text-sm font-semibold">Bestsellers</h3>
-                    <ul className="space-y-1">
-                      {bestsellers.map((item) => (
-                        <ListItem key={item.title} href={item.href} title={item.title} />
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="mb-2 text-sm font-semibold">Categories</h3>
-                    <ul className="space-y-1">
-                      {categories.map((item) => (
-                         <ListItem key={item.title} href={item.href} title={item.title} />
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="#about" legacyBehavior passHref>
-                <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
+                </Link>
+                <Link href="#bestsellers" className="text-lg font-medium hover:underline" prefetch={false}>
+                  Bestsellers
+                </Link>
+                <Link href="#categories" className="text-lg font-medium hover:underline" prefetch={false}>
+                  Categories
+                </Link>
+                 <Link href="#about" className="text-lg font-medium hover:underline" prefetch={false}>
                   About
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-             <NavigationMenuItem>
-              <Link href="#contact" legacyBehavior passHref>
-                <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), transparentNavStyle)}>
+                </Link>
+                 <Link href="#contact" className="text-lg font-medium hover:underline" prefetch={false}>
                   Contact
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+                </Link>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
