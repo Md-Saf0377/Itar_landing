@@ -30,7 +30,7 @@ export default function WhatsAppButton({ isVisible }: WhatsAppButtonProps) {
             className="p-2"
           />
         </div>
-        <span className="absolute top-0 right-0 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-sm font-bold text-white">
+        <span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-[10px] font-bold text-white">
           1
         </span>
       </div>
