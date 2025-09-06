@@ -2,7 +2,7 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { getPerfumeByName, Perfume } from '@/lib/perfumes';
+import { getPerfumeByName, Perfume, perfumes } from '@/lib/perfumes';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/context/cart-context';
@@ -11,12 +11,14 @@ import { useEffect, useState } from 'react';
 import Header from '@/components/landing/header';
 import Footer from '@/components/landing/footer';
 import { cn } from '@/lib/utils';
+import PerfumeCard from '@/components/landing/perfume-card';
 
 const sizes = [3, 6, 12];
 
 export default function PerfumePage() {
   const params = useParams();
   const [perfume, setPerfume] = useState<Perfume | null>(null);
+  const [recommendedPerfumes, setRecommendedPerfumes] = useState<Perfume[]>([]);
   const [selectedSize, setSelectedSize] = useState<number>(sizes[0]);
   const { addToCart } = useCart();
 
@@ -25,6 +27,14 @@ export default function PerfumePage() {
       const perfumeName = decodeURIComponent(params.name as string);
       const foundPerfume = getPerfumeByName(perfumeName);
       setPerfume(foundPerfume || null);
+
+      if (foundPerfume) {
+        const otherPerfumes = perfumes
+          .filter((p) => p.name !== foundPerfume.name)
+          .sort(() => 0.5 - Math.random())
+          .slice(0, 4);
+        setRecommendedPerfumes(otherPerfumes);
+      }
     }
   }, [params.name]);
 
@@ -103,6 +113,20 @@ export default function PerfumePage() {
             </div>
           </div>
         </div>
+
+        <section className="w-full bg-secondary py-12 md:py-24 lg:py-32">
+          <div className="container mx-auto px-4 md:px-6">
+            <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
+              We Also Recommend
+            </h2>
+            <div className="mx-auto grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {recommendedPerfumes.map((p) => (
+                <PerfumeCard key={p.name} perfume={p} />
+              ))}
+            </div>
+          </div>
+        </section>
+
       </main>
       <Footer />
     </div>
