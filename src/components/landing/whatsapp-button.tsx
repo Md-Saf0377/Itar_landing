@@ -30,9 +30,6 @@ export default function WhatsAppButton({ isVisible }: WhatsAppButtonProps) {
       )}
       aria-label="Chat on WhatsApp"
     >
-      <div className="rounded-lg bg-white px-4 py-2 text-foreground shadow-md">
-        <span className="font-semibold">تواصل معنا</span>
-      </div>
       <div className="relative">
         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500 shadow-lg">
           <WhatsAppIcon />
