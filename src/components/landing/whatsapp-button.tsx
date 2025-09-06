@@ -22,7 +22,7 @@ export default function WhatsAppButton({ isVisible }: WhatsAppButtonProps) {
       aria-label="Chat on WhatsApp"
     >
       <div className="relative">
-        <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-green-500 shadow-lg">
+        <div className="relative flex h-12 w-12 items-center justify-center">
           <Image
             src="https://cdn.shopify.com/s/files/1/0033/3538/9233/files/520.png"
             alt="WhatsApp Icon"
