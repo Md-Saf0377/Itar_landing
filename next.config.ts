@@ -46,6 +46,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.shutterstock.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.shopify.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
