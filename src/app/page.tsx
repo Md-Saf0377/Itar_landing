@@ -1,3 +1,4 @@
+
 import AboutSection from '@/components/landing/about';
 import BestsellerSection from '@/components/landing/bestseller';
 import CategoriesSection from '@/components/landing/categories';

@@ -1,21 +1,28 @@
+
+'use client';
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { CartProvider } from '@/context/cart-context';
+import WhatsAppButton from '@/components/landing/whatsapp-button';
+import { useScrollVisibility } from '@/hooks/use-scroll-visibility';
 
-export const metadata: Metadata = {
-  title: 'Itar Landing',
-  description: 'Discover the essence of elegance with Itar perfumes.',
-};
+// This is a client component, so metadata should be exported from a server component if needed.
+// For simplicity, we'll manage the title directly in the <head>.
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isVisible = useScrollVisibility();
+
   return (
     <html lang="en">
       <head>
+        <title>Itar Landing</title>
+        <meta name="description" content="Discover the essence of elegance with Itar perfumes." />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -26,6 +33,7 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <CartProvider>
           {children}
+          <WhatsAppButton isVisible={isVisible} />
         </CartProvider>
         <Toaster />
       </body>
