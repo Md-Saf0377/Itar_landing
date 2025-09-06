@@ -83,6 +83,13 @@ export default function Header() {
                 </Link>
               </NavigationMenuItem>
                <NavigationMenuItem>
+                <Link href="#testimonials" legacyBehavior passHref>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
+                    Testimonials
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+               <NavigationMenuItem>
                 <Link href="#contact" legacyBehavior passHref>
                   <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     Contact
@@ -119,6 +126,9 @@ export default function Header() {
                     </Link>
                      <Link href="#about" className="text-lg font-medium hover:underline" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
                       About
+                    </Link>
+                     <Link href="#testimonials" className="text-lg font-medium hover:underline" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
+                      Testimonials
                     </Link>
                      <Link href="#contact" className="text-lg font-medium hover:underline" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
                       Contact

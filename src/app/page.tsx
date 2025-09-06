@@ -6,6 +6,7 @@ import ContactSection from '@/components/landing/contact';
 import Footer from '@/components/landing/footer';
 import Header from '@/components/landing/header';
 import HeroSection from '@/components/landing/hero';
+import TestimonialsSection from '@/components/landing/testimonials';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <BestsellerSection />
         <CategoriesSection />
         <CollectionSection />
+        <TestimonialsSection />
         <ContactSection />
       </main>
       <Footer />
