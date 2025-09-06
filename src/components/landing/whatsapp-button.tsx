@@ -16,12 +16,12 @@ export default function WhatsAppButton({ isVisible }: WhatsAppButtonProps) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'fixed bottom-6 right-6 z-50 flex items-center gap-3 transition-opacity duration-300',
+        'fixed bottom-6 right-6 z-50 flex items-center gap-2 transition-opacity duration-300',
         isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
       )}
       aria-label="Chat on WhatsApp"
     >
-      <div className="rounded-full bg-background px-4 py-2 text-sm font-medium text-foreground shadow-lg">
+      <div className="rounded-full bg-background px-3 py-1 text-xs font-medium text-foreground shadow-lg">
         Contact Us
       </div>
       <div className="relative">
