@@ -10,10 +10,14 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Header from '@/components/landing/header';
 import Footer from '@/components/landing/footer';
+import { cn } from '@/lib/utils';
+
+const sizes = [3, 6, 12];
 
 export default function PerfumePage() {
   const params = useParams();
   const [perfume, setPerfume] = useState<Perfume | null>(null);
+  const [selectedSize, setSelectedSize] = useState<number>(sizes[0]);
   const { addToCart } = useCart();
 
   useEffect(() => {
@@ -33,7 +37,7 @@ export default function PerfumePage() {
   }
 
   const { name, description, imageUrl, imageHint } = perfume;
-  const mailtoLink = `mailto:contact@itar.com?subject=Order for ${encodeURIComponent(name)}&body=I would like to purchase ${encodeURIComponent(name)}. Please provide me with payment and shipping details.`;
+  const mailtoLink = `mailto:contact@itar.com?subject=Order for ${encodeURIComponent(name)} (${selectedSize}ml)&body=I would like to purchase ${encodeURIComponent(name)} (${selectedSize}ml). Please provide me with payment and shipping details.`;
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -54,10 +58,31 @@ export default function PerfumePage() {
             <div className="flex flex-col justify-center space-y-6">
               <h1 className="font-headline text-4xl font-bold md:text-5xl">{name}</h1>
               <p className="text-lg text-muted-foreground">{description}</p>
+               <div className="mt-4">
+                <span className="text-sm font-medium text-muted-foreground">Size:</span>
+                <div className="mt-2 flex gap-2">
+                  {sizes.map((size) => (
+                    <Button
+                      key={size}
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setSelectedSize(size)}
+                       className={cn(
+                        'border border-black/20 bg-white/20 text-foreground backdrop-blur-sm',
+                        selectedSize === size
+                          ? 'bg-black text-white'
+                          : 'hover:bg-black/10'
+                      )}
+                    >
+                      {size}ml
+                    </Button>
+                  ))}
+                </div>
+              </div>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Button
                   size="lg"
-                  onClick={() => addToCart(perfume)}
+                  onClick={() => addToCart({ ...perfume, size: selectedSize })}
                   className="border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/30"
                 >
                   Add to Cart

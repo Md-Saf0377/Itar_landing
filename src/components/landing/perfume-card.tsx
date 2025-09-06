@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -13,16 +14,27 @@ import {
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/context/cart-context';
 import type { Perfume } from '@/lib/perfumes';
+import React, { useState } from 'react';
+import { cn } from '@/lib/utils';
 
 type PerfumeCardProps = {
   perfume: Perfume;
 };
 
+const sizes = [3, 6, 12];
+
 export default function PerfumeCard({ perfume }: PerfumeCardProps) {
   const { name, description, imageUrl, imageHint } = perfume;
   const { addToCart } = useCart();
+  const [selectedSize, setSelectedSize] = useState<number>(sizes[0]);
 
-  const mailtoLink = `mailto:contact@itar.com?subject=Order for ${encodeURIComponent(name)}&body=I would like to purchase ${encodeURIComponent(name)}. Please provide me with payment and shipping details.`;
+  const mailtoLink = `mailto:contact@itar.com?subject=Order for ${encodeURIComponent(name)} (${selectedSize}ml)&body=I would like to purchase ${encodeURIComponent(name)} (${selectedSize}ml). Please provide me with payment and shipping details.`;
+
+  const handleSizeClick = (e: React.MouseEvent, size: number) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSelectedSize(size);
+  };
 
   return (
     <Link href={`/perfume/${encodeURIComponent(name)}`} className="flex">
@@ -42,13 +54,34 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
         <CardContent className="flex-1 p-6">
           <CardTitle className="font-headline text-2xl">{name}</CardTitle>
           <CardDescription className="mt-2">{description}</CardDescription>
+          <div className="mt-4">
+            <span className="text-sm font-medium text-muted-foreground">Size:</span>
+            <div className="mt-2 flex gap-2">
+              {sizes.map((size) => (
+                <Button
+                  key={size}
+                  variant="outline"
+                  size="sm"
+                  onClick={(e) => handleSizeClick(e, size)}
+                  className={cn(
+                    'border border-black/20 bg-white/20 text-foreground backdrop-blur-sm',
+                    selectedSize === size
+                      ? 'bg-black text-white'
+                      : 'hover:bg-black/10'
+                  )}
+                >
+                  {size}ml
+                </Button>
+              ))}
+            </div>
+          </div>
         </CardContent>
         <CardFooter className="flex gap-2 p-6 pt-0">
             <Button
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                addToCart(perfume);
+                addToCart({ ...perfume, size: selectedSize });
               }}
               className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/30"
             >

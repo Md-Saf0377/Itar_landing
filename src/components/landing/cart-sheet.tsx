@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -21,7 +22,7 @@ export default function CartSheet() {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
   const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-  const checkoutMailtoLink = `mailto:contact@itar.com?subject=Order Inquiry&body=I would like to purchase the following items:%0A%0A${cartItems.map(item => `${item.quantity}x ${item.name}`).join('%0A')}%0A%0APlease provide me with payment and shipping details.`;
+  const checkoutMailtoLink = `mailto:contact@itar.com?subject=Order Inquiry&body=I would like to purchase the following items:%0A%0A${cartItems.map(item => `${item.quantity}x ${item.name} (${item.size}ml)`).join('%0A')}%0A%0APlease provide me with payment and shipping details.`;
 
   return (
     <Sheet>
@@ -45,9 +46,9 @@ export default function CartSheet() {
             <div className="flex-1 overflow-y-auto pr-4">
               <ul className="space-y-4">
                 {cartItems.map((item) => {
-                  const buyNowMailtoLink = `mailto:contact@itar.com?subject=Order for ${encodeURIComponent(item.name)}&body=I would like to purchase ${encodeURIComponent(item.quantity)}x ${encodeURIComponent(item.name)}. Please provide me with payment and shipping details.`;
+                  const buyNowMailtoLink = `mailto:contact@itar.com?subject=Order for ${encodeURIComponent(item.name)}&body=I would like to purchase ${encodeURIComponent(item.quantity)}x ${encodeURIComponent(item.name)} (${item.size}ml). Please provide me with payment and shipping details.`;
                   return (
-                    <li key={item.name} className="flex items-start gap-4">
+                    <li key={item.id} className="flex items-start gap-4">
                       <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-md">
                         <Image
                           src={item.imageUrl}
@@ -58,20 +59,21 @@ export default function CartSheet() {
                       </div>
                       <div className="flex-1">
                         <h3 className="font-semibold">{item.name}</h3>
+                        <p className="text-sm text-muted-foreground">Size: {item.size}ml</p>
                         <div className="mt-2 flex items-center gap-2">
                           <Input
                             type="number"
                             min="1"
                             value={item.quantity}
                             onChange={(e) =>
-                              updateQuantity(item.name, parseInt(e.target.value, 10))
+                              updateQuantity(item.id, parseInt(e.target.value, 10))
                             }
                             className="h-8 w-16"
                           />
                           <Button
                             variant="ghost"
                             size="icon"
-                            onClick={() => removeFromCart(item.name)}
+                            onClick={() => removeFromCart(item.id)}
                             aria-label={`Remove ${item.name}`}
                           >
                             <Trash2 className="h-4 w-4 text-destructive" />
