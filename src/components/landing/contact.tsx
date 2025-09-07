@@ -16,8 +16,8 @@ export default function ContactSection() {
         <div className="mt-6 flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
           <div className="flex items-center gap-2">
             <Mail className="h-5 w-5 text-primary" />
-            <a href="mailto:contact@itar.com" className="text-lg font-medium hover:underline">
-              contact@itar.com
+            <a href="mailto:contact@kaabfragrances.com" className="text-lg font-medium hover:underline">
+              contact@kaabfragrances.com
             </a>
           </div>
           <div className="flex items-center gap-2">

@@ -21,7 +21,7 @@ const testimonials = [
     avatar: "JL",
     image: "https://picsum.photos/100/100?random=3",
     imageHint: "woman portrait",
-    quote: "Crystal Saffron is a masterpiece. It's spicy, sophisticated, and perfect for special occasions. Itar has a customer for life in me. The quality is simply unmatched.",
+    quote: "Crystal Saffron is a masterpiece. It's spicy, sophisticated, and perfect for special occasions. Kaab Fragrances has a customer for life in me. The quality is simply unmatched.",
   },
 ];
 

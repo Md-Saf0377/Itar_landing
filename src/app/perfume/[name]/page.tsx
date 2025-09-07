@@ -47,7 +47,7 @@ export default function PerfumePage() {
   }
 
   const { name, description, imageUrl, imageHint } = perfume;
-  const mailtoLink = `mailto:contact@itar.com?subject=Order for ${encodeURIComponent(name)} (${selectedSize}ml)&body=I would like to purchase ${encodeURIComponent(name)} (${selectedSize}ml). Please provide me with payment and shipping details.`;
+  const mailtoLink = `mailto:contact@kaabfragrances.com?subject=Order for ${encodeURIComponent(name)} (${selectedSize}ml)&body=I would like to purchase ${encodeURIComponent(name)} (${selectedSize}ml). Please provide me with payment and shipping details.`;
 
   return (
     <div className="flex min-h-screen flex-col">

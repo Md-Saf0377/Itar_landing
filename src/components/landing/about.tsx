@@ -11,7 +11,7 @@ export default function AboutSection() {
                 Our Story
               </h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Itar was born from a passion for the art of perfumery. Our journey began with a simple desire to capture the essence of memories and emotions in a bottle. We travel the world to source the finest ingredients, blending tradition with modern innovation to create unique and captivating fragrances that tell a story.
+                Kaab Fragrances was born from a passion for the art of perfumery. Our journey began with a simple desire to capture the essence of memories and emotions in a bottle. We travel the world to source the finest ingredients, blending tradition with modern innovation to create unique and captivating fragrances that tell a story.
               </p>
             </div>
           </div>

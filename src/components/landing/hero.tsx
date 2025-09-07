@@ -17,7 +17,7 @@ export default function HeroSection() {
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
         <div className="space-y-4">
           <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-6xl md:text-7xl">
-            Itar
+            Kaab Fragrances
           </h1>
           <p className="max-w-[700px] text-lg text-gray-200 md:text-xl">
             Crafting memories, one scent at a time. Discover your signature fragrance with our exclusive collection.

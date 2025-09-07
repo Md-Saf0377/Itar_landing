@@ -40,7 +40,7 @@ export default function Header() {
       <div className="container mx-auto flex h-14 items-center justify-between">
         <Link href="#" className="flex items-center mr-4" prefetch={false}>
           <Leaf className="h-6 w-6" />
-          <span className="ml-2 font-headline text-lg font-semibold">Itar</span>
+          <span className="ml-2 font-headline text-lg font-semibold">Kaab Fragrances</span>
         </Link>
         <div className="hidden flex-1 md:flex justify-center">
           <NavigationMenu>

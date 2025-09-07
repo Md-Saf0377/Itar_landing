@@ -8,7 +8,7 @@ export default function Footer() {
         <Separator className="mb-6" />
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:justify-between">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Itar Landing. All rights reserved.
+            &copy; {new Date().getFullYear()} Kaab Fragrances. All rights reserved.
           </p>
           <nav className="flex gap-4 sm:gap-6">
             <Link href="#" className="text-sm hover:underline" prefetch={false}>
