@@ -1,3 +1,4 @@
+
 "use client"
 import Link from 'next/link';
 import { Leaf, Menu } from 'lucide-react';
@@ -46,7 +47,7 @@ export default function Header() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link href="#home" passHref>
+                <Link href="#home" legacyBehavior passHref>
                   <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     Home
                   </NavigationMenuLink>
@@ -76,21 +77,21 @@ export default function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="#about" passHref>
+                <Link href="#about" legacyBehavior passHref>
                   <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     About
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
                <NavigationMenuItem>
-                <Link href="#testimonials" passHref>
+                <Link href="#testimonials" legacyBehavior passHref>
                   <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     Testimonials
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
                <NavigationMenuItem>
-                <Link href="#contact" passHref>
+                <Link href="#contact" legacyBehavior passHref>
                   <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     Contact
                   </NavigationMenuLink>
