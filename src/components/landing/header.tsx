@@ -47,9 +47,11 @@ export default function Header() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link href="#home" passHref legacyBehavior>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
-                    Home
+                <Link href="#home" legacyBehavior passHref>
+                  <NavigationMenuLink asChild>
+                    <a className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
+                      Home
+                    </a>
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -77,23 +79,29 @@ export default function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="#about" passHref legacyBehavior>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
-                    About
+                <Link href="#about" legacyBehavior passHref>
+                  <NavigationMenuLink asChild>
+                    <a className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
+                      About
+                    </a>
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="#testimonials" passHref legacyBehavior>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
-                    Testimonials
+                <Link href="#testimonials" legacyBehavior passHref>
+                  <NavigationMenuLink asChild>
+                    <a className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
+                      Testimonials
+                    </a>
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="#contact" passHref legacyBehavior>
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
-                    Contact
+                <Link href="#contact" legacyBehavior passHref>
+                  <NavigationMenuLink asChild>
+                    <a className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
+                      Contact
+                    </a>
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -157,3 +165,4 @@ const ListItem = React.forwardRef<
   )
 })
 ListItem.displayName = "ListItem"
+
