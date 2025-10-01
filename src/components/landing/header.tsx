@@ -18,19 +18,19 @@ import { Button } from '../ui/button';
 import CartSheet from './cart-sheet';
 
 const bestsellers = [
-    { title: "Radical Rose", href: "#bestsellers" },
-    { title: "Vanilla Powder", href: "#bestsellers" },
-    { title: "Crystal Saffron", href: "#bestsellers" },
-    { title: "Gift set", href: "#bestsellers" },
-    { title: "Samples", href: "#bestsellers" },
+  { title: "Radical Rose", href: "#bestsellers" },
+  { title: "Vanilla Powder", href: "#bestsellers" },
+  { title: "Crystal Saffron", href: "#bestsellers" },
+  { title: "Gift set", href: "#bestsellers" },
+  { title: "Samples", href: "#bestsellers" },
 ]
 
 const categories = [
-    { title: "Extrait de Parfum", href: "#categories" },
-    { title: "Eau de Parfum", href: "#categories" },
-    { title: "Hand & Body", href: "#categories" },
-    { title: "Hair Perfume", href: "#categories" },
-    { title: "Discovery Set", href: "#categories" },
+  { title: "Extrait de Parfum", href: "#categories" },
+  { title: "Eau de Parfum", href: "#categories" },
+  { title: "Hand & Body", href: "#categories" },
+  { title: "Hair Perfume", href: "#categories" },
+  { title: "Discovery Set", href: "#categories" },
 ]
 
 export default function Header() {
@@ -47,9 +47,9 @@ export default function Header() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link href="#home" passHref legacyBehavior>
-                  <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
-                    <a href="#home">Home</a>
+                <Link href="#home" legacyBehavior passHref>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
+                    Home
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -69,7 +69,7 @@ export default function Header() {
                       <h3 className="mb-2 text-sm font-semibold">Categories</h3>
                       <ul className="space-y-1">
                         {categories.map((item) => (
-                           <ListItem key={item.title} href={item.href} title={item.title} />
+                          <ListItem key={item.title} href={item.href} title={item.title} />
                         ))}
                       </ul>
                     </div>
@@ -77,23 +77,23 @@ export default function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                 <Link href="#about" passHref legacyBehavior>
-                  <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
-                    <a href="#about">About</a>
+                <Link href="#about" legacyBehavior passHref>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
+                    About
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-               <NavigationMenuItem>
-                 <Link href="#testimonials" passHref legacyBehavior>
-                  <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
-                    <a href="#testimonials">Testimonials</a>
+              <NavigationMenuItem>
+                <Link href="#testimonials" legacyBehavior passHref>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
+                    Testimonials
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-               <NavigationMenuItem>
-                 <Link href="#contact" passHref legacyBehavior>
-                  <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
-                    <a href="#contact">Contact</a>
+              <NavigationMenuItem>
+                <Link href="#contact" legacyBehavior passHref>
+                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
+                    Contact
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -101,30 +101,30 @@ export default function Header() {
           </NavigationMenu>
         </div>
         <div className="flex items-center gap-2">
-            <CartSheet />
-             <div className="md:hidden">
-              <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon">
-                    <Menu />
-                    <span className="sr-only">Open menu</span>
-                  </Button>
-                </SheetTrigger>
-                <SheetContent>
-                  <SheetHeader>
-                    <SheetTitle>Menu</SheetTitle>
-                  </SheetHeader>
-                  <nav className="mt-4 flex flex-col space-y-4">
-                    <Link href="#home" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-                    <Link href="#bestsellers" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Bestsellers</Link>
-                    <Link href="#categories" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Categories</Link>
-                    <Link href="#about" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-                    <Link href="#testimonials" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</Link>
-                    <Link href="#contact" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
-                  </nav>
-                </SheetContent>
-              </Sheet>
-            </div>
+          <CartSheet />
+          <div className="md:hidden">
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent>
+                <SheetHeader>
+                  <SheetTitle>Menu</SheetTitle>
+                </SheetHeader>
+                <nav className="mt-4 flex flex-col space-y-4">
+                  <Link href="#home" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+                  <Link href="#bestsellers" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Bestsellers</Link>
+                  <Link href="#categories" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Categories</Link>
+                  <Link href="#about" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+                  <Link href="#testimonials" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</Link>
+                  <Link href="#contact" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </header>
