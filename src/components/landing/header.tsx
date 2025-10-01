@@ -7,8 +7,8 @@ import {
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
-  NavigationMenuTrigger,
   NavigationMenuLink,
+  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import React from 'react';
@@ -47,7 +47,7 @@ export default function Header() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link href="#home" passHref legacyBehavior>
+                <Link href="#home" legacyBehavior passHref>
                   <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     Home
                   </NavigationMenuLink>
@@ -77,21 +77,21 @@ export default function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                 <Link href="#about" passHref legacyBehavior>
+                 <Link href="#about" legacyBehavior passHref>
                   <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     About
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
                <NavigationMenuItem>
-                 <Link href="#testimonials" passHref legacyBehavior>
+                 <Link href="#testimonials" legacyBehavior passHref>
                   <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     Testimonials
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
                <NavigationMenuItem>
-                 <Link href="#contact" passHref legacyBehavior>
+                 <Link href="#contact" legacyBehavior passHref>
                   <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     Contact
                   </NavigationMenuLink>
@@ -106,35 +106,22 @@ export default function Header() {
               <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon">
-                    <Menu className="h-6 w-6" />
-                    <span className="sr-only">Toggle navigation menu</span>
+                    <Menu />
+                    <span className="sr-only">Open menu</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right">
+                <SheetContent>
                   <SheetHeader>
-                    <SheetTitle>Navigation</SheetTitle>
-                    <SheetDescription>Select a page to navigate to.</SheetDescription>
+                    <SheetTitle>Menu</SheetTitle>
                   </SheetHeader>
-                  <div className="grid gap-4 p-4">
-                    <Link href="#home" className="text-lg font-medium hover:underline" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
-                      Home
-                    </Link>
-                    <Link href="#bestsellers" className="text-lg font-medium hover:underline" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
-                      Bestsellers
-                    </Link>
-                    <Link href="#categories" className="text-lg font-medium hover:underline" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
-                      Categories
-                    </Link>
-                     <Link href="#about" className="text-lg font-medium hover:underline" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
-                      About
-                    </Link>
-                     <Link href="#testimonials" className="text-lg font-medium hover:underline" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
-                      Testimonials
-                    </Link>
-                     <Link href="#contact" className="text-lg font-medium hover:underline" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
-                      Contact
-                    </Link>
-                  </div>
+                  <nav className="mt-4 flex flex-col space-y-4">
+                    <Link href="#home" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+                    <Link href="#bestsellers" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Bestsellers</Link>
+                    <Link href="#categories" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Categories</Link>
+                    <Link href="#about" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+                    <Link href="#testimonials" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</Link>
+                    <Link href="#contact" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+                  </nav>
                 </SheetContent>
               </Sheet>
             </div>
@@ -152,7 +139,7 @@ const ListItem = React.forwardRef<
   return (
     <li>
       <NavigationMenuLink asChild>
-        <Link
+        <a
           ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
@@ -164,9 +151,9 @@ const ListItem = React.forwardRef<
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
-        </Link>
+        </a>
       </NavigationMenuLink>
     </li>
-  );
-});
-ListItem.displayName = "ListItem";
+  )
+})
+ListItem.displayName = "ListItem"
