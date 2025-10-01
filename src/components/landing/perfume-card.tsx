@@ -37,69 +37,71 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
   };
 
   return (
-    <Link href={`/perfume/${encodeURIComponent(name)}`} className="flex">
-      <Card className="flex h-full w-full transform flex-col overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
-        <CardHeader className="p-0">
-          <div className="relative h-64 w-full">
-            <Image
-              src={imageUrl}
-              alt={`Image of ${name}`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              data-ai-hint={imageHint}
-            />
-          </div>
-        </CardHeader>
-        <CardContent className="flex-1 p-6">
-          <CardTitle className="font-headline text-2xl">{name}</CardTitle>
-          <CardDescription className="mt-2">{description}</CardDescription>
-          <div className="mt-4">
-            <span className="text-sm font-medium text-muted-foreground">Size:</span>
-            <div className="mt-2 flex gap-2">
-              {sizes.map((size) => (
-                <Button
-                  key={size}
-                  variant="outline"
-                  size="sm"
-                  onClick={(e) => handleSizeClick(e, size)}
-                  className={cn(
-                    'border border-black/20 bg-white/20 text-foreground backdrop-blur-sm',
-                    selectedSize === size
-                      ? 'bg-black text-white'
-                      : 'hover:bg-black/10'
-                  )}
-                >
-                  {size}ml
-                </Button>
-              ))}
+    <Link
+      href={`/perfume/${encodeURIComponent(name)}`}
+      className="flex h-full w-full">
+        <Card className="flex h-full w-full transform flex-col overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105">
+          <CardHeader className="p-0">
+            <div className="relative h-64 w-full">
+              <Image
+                src={imageUrl}
+                alt={`Image of ${name}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                data-ai-hint={imageHint}
+              />
             </div>
-          </div>
-        </CardContent>
-        <CardFooter className="flex gap-2 p-6 pt-0">
-            <Button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                addToCart({ ...perfume, size: selectedSize });
-              }}
-              className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/30"
-            >
-              Add to Cart
-            </Button>
-            <Button
-                variant="outline"
-                className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm hover:bg-black hover:text-white active:bg-black active:text-white"
+          </CardHeader>
+          <CardContent className="flex-1 p-6">
+            <CardTitle className="font-headline text-2xl">{name}</CardTitle>
+            <CardDescription className="mt-2">{description}</CardDescription>
+            <div className="mt-4">
+              <span className="text-sm font-medium text-muted-foreground">Size:</span>
+              <div className="mt-2 flex gap-2">
+                {sizes.map((size) => (
+                  <Button
+                    key={size}
+                    variant="outline"
+                    size="sm"
+                    onClick={(e) => handleSizeClick(e, size)}
+                    className={cn(
+                      'border border-black/20 bg-white/20 text-foreground backdrop-blur-sm',
+                      selectedSize === size
+                        ? 'bg-black text-white'
+                        : 'hover:bg-black/10'
+                    )}
+                  >
+                    {size}ml
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </CardContent>
+          <CardFooter className="flex gap-2 p-6 pt-0">
+              <Button
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  window.location.href = mailtoLink;
+                  addToCart({ ...perfume, size: selectedSize });
                 }}
-            >
-                Buy Now
-            </Button>
-        </CardFooter>
-      </Card>
+                className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/30"
+              >
+                Add to Cart
+              </Button>
+              <Button
+                  variant="outline"
+                  className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm hover:bg-black hover:text-white active:bg-black active:text-white"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.location.href = mailtoLink;
+                  }}
+              >
+                  Buy Now
+              </Button>
+          </CardFooter>
+        </Card>
     </Link>
   );
 }

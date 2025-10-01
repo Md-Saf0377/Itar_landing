@@ -28,14 +28,23 @@ export default function ContactSection() {
           </div>
         </div>
          <div className="mt-8 flex justify-center space-x-6">
-            <Link href="#" className="text-muted-foreground hover:text-foreground" prefetch={false}>
-              <Instagram className="h-6 w-6" />
+            <Link
+              href="#"
+              prefetch={false}
+              className="text-muted-foreground hover:text-foreground">
+                <Instagram className="h-6 w-6" />
             </Link>
-            <Link href="#" className="text-muted-foreground hover:text-foreground" prefetch={false}>
-              <Facebook className="h-6 w-6" />
+            <Link
+              href="#"
+              prefetch={false}
+              className="text-muted-foreground hover:text-foreground">
+                <Facebook className="h-6 w-6" />
             </Link>
-            <Link href="#" className="text-muted-foreground hover:text-foreground" prefetch={false}>
-              <Twitter className="h-6 w-6" />
+            <Link
+              href="#"
+              prefetch={false}
+              className="text-muted-foreground hover:text-foreground">
+                <Twitter className="h-6 w-6" />
             </Link>
           </div>
       </div>

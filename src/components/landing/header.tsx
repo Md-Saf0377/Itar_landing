@@ -40,14 +40,14 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 px-4 py-2 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-6">
       <div className="container mx-auto flex h-14 items-center justify-between">
         <Link href="#" className="flex items-center mr-4" prefetch={false}>
-          <Leaf className="h-6 w-6" />
-          <span className="ml-2 font-headline text-lg font-semibold">Kaab Fragrances</span>
+            <Leaf className="h-6 w-6" />
+            <span className="ml-2 font-headline text-lg font-semibold">Kaab Fragrances</span>
         </Link>
-        <div className="hidden flex-1 md:flex justify-center">
+        <div className="hidden flex-1 justify-center md:flex">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link href="#home" legacyBehavior passHref>
+                <Link href="#home" passHref legacyBehavior>
                   <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     Home
                   </NavigationMenuLink>
@@ -77,21 +77,21 @@ export default function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="#about" legacyBehavior passHref>
+                <Link href="#about" passHref legacyBehavior>
                   <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     About
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="#testimonials" legacyBehavior passHref>
+                <Link href="#testimonials" passHref legacyBehavior>
                   <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     Testimonials
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="#contact" legacyBehavior passHref>
+                <Link href="#contact" passHref legacyBehavior>
                   <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "hover:bg-black hover:text-white active:bg-black active:text-white")}>
                     Contact
                   </NavigationMenuLink>
