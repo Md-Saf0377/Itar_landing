@@ -29,6 +29,7 @@ export default function PerfumePage() {
       setPerfume(foundPerfume || null);
 
       if (foundPerfume) {
+        document.title = `${foundPerfume.name} | Kaab Fragrances`;
         const otherPerfumes = perfumes
           .filter((p) => p.name !== foundPerfume.name)
           .sort(() => 0.5 - Math.random())
@@ -63,6 +64,7 @@ export default function PerfumePage() {
                 className="rounded-lg object-cover shadow-lg"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 data-ai-hint={imageHint}
+                priority
               />
             </div>
             <div className="flex flex-col justify-center space-y-6">
