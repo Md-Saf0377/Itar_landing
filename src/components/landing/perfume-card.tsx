@@ -46,7 +46,7 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
       <Link
         href={`/perfume/${encodeURIComponent(name)}`}
         className="flex h-full w-full">
-          <Card className="flex h-full w-full transform flex-col overflow-hidden rounded-lg shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
+          <Card className="flex h-full w-full transform flex-col overflow-hidden rounded-lg bg-card shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
             <CardHeader className="p-0">
               <div className="relative h-64 w-full">
                 <Image
@@ -73,10 +73,10 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
                             size="sm"
                             onClick={(e) => handleSizeClick(e, size)}
                             className={cn(
-                              'border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-all duration-300 ease-in-out',
+                              'border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-all duration-300 ease-in-out dark:border-white/20 dark:bg-black/20',
                               selectedSize === size
-                                ? 'bg-black text-white'
-                                : 'hover:bg-black/10'
+                                ? 'bg-black text-white dark:bg-white dark:text-black'
+                                : 'hover:bg-black/10 dark:hover:bg-white/10'
                             )}
                           >
                             {size}ml
@@ -97,13 +97,13 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
                     e.stopPropagation();
                     addToCart({ ...perfume, size: selectedSize });
                   }}
-                  className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-all duration-300 ease-in-out hover:bg-black hover:text-white hover:scale-105"
+                  className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-all duration-300 ease-in-out hover:bg-black hover:text-white hover:scale-105 dark:border-white/20 dark:bg-black/20 dark:hover:bg-white dark:hover:text-black"
                 >
                   Add to Cart
                 </Button>
                 <Button
                     variant="outline"
-                    className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-all duration-300 ease-in-out hover:bg-black hover:text-white active:bg-black active:text-white hover:scale-105"
+                    className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-all duration-300 ease-in-out hover:bg-black hover:text-white active:bg-black active:text-white hover:scale-105 dark:border-white/20 dark:bg-black/20 dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();

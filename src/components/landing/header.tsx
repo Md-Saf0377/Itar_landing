@@ -15,6 +15,7 @@ import { cn } from '@/lib/utils';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet';
 import { Button } from '../ui/button';
 import CartSheet from './cart-sheet';
+import { ThemeToggle } from './theme-toggle';
 
 const bestsellers = [
   { title: "Radical Rose", href: "#bestsellers" },
@@ -54,7 +55,7 @@ export default function Header() {
                     href="#home"
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "hover:bg-black hover:text-white active:bg-black active:text-white"
+                      "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
                     )}
                   >
                     Home
@@ -63,7 +64,7 @@ export default function Header() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="hover:bg-black hover:text-white active:bg-black active:text-white">
+                <NavigationMenuTrigger className="hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black">
                   Shop
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -94,7 +95,7 @@ export default function Header() {
                     href="#about"
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "hover:bg-black hover:text-white active:bg-black active:text-white"
+                      "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
                     )}
                   >
                     About
@@ -108,7 +109,7 @@ export default function Header() {
                     href="#testimonials"
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "hover:bg-black hover:text-white active:bg-black active:text-white"
+                      "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
                     )}
                   >
                     Testimonials
@@ -122,7 +123,7 @@ export default function Header() {
                     href="#contact"
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "hover:bg-black hover:text-white active:bg-black active:text-white"
+                      "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
                     )}
                   >
                     Contact
@@ -135,6 +136,7 @@ export default function Header() {
 
         {/* Right Side (Cart + Mobile Menu) */}
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <CartSheet />
           <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
