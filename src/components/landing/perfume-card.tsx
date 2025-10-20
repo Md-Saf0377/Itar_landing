@@ -64,7 +64,7 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
               <CardDescription className="mt-2">{description}</CardDescription>
               <div className="mt-4">
                 <span className="text-sm font-medium text-muted-foreground">Size:</span>
-                <div className="mt-2 flex gap-2">
+                <div className="mt-2 flex justify-center gap-2">
                   {sizes.map(({ size, label }) => (
                      <Tooltip key={size}>
                         <TooltipTrigger asChild>

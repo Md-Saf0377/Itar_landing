@@ -78,7 +78,7 @@ export default function PerfumePage() {
                 <p className="text-lg text-muted-foreground">{description}</p>
                  <div className="mt-4">
                   <span className="text-sm font-medium text-muted-foreground">Size:</span>
-                  <div className="mt-2 flex gap-2">
+                  <div className="mt-2 flex justify-center gap-2 md:justify-start">
                     {sizes.map(({ size, label }) => (
                        <Tooltip key={size}>
                           <TooltipTrigger asChild>
@@ -147,4 +147,3 @@ export default function PerfumePage() {
     </div>
   );
 }
-
