@@ -1,7 +1,17 @@
 
+'use client';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 import FadeInSection from "./fade-in-section";
+import React from "react";
 
 const testimonials = [
   {
@@ -42,6 +52,10 @@ const testimonials = [
 ];
 
 export default function TestimonialsSection() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  )
+
   return (
     <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32">
       <FadeInSection>
@@ -56,28 +70,37 @@ export default function TestimonialsSection() {
               </p>
             </div>
           </div>
-          <div className="mx-auto grid grid-cols-1 gap-8 pt-12 sm:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.name} className="overflow-hidden">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <Avatar>
-                      <AvatarImage src={testimonial.image} alt={testimonial.name} data-ai-hint={testimonial.imageHint} />
-                      <AvatarFallback>{testimonial.avatar}</AvatarFallback>
-                    </Avatar>
-                    <div className="flex-1">
-                      <p className="text-lg italic text-muted-foreground">
-                        &ldquo;{testimonial.quote}&rdquo;
-                      </p>
-                      <p className="mt-4 text-right font-semibold text-foreground">
-                        - {testimonial.name}
-                      </p>
-                    </div>
+          <Carousel
+            plugins={[plugin.current]}
+            className="mx-auto mt-12 w-full max-w-4xl"
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card className="h-full overflow-hidden">
+                      <CardContent className="flex h-full flex-col items-center justify-center p-6 text-center">
+                        <Avatar className="mb-4 h-20 w-20">
+                          <AvatarImage src={testimonial.image} alt={testimonial.name} data-ai-hint={testimonial.imageHint} />
+                          <AvatarFallback>{testimonial.avatar}</AvatarFallback>
+                        </Avatar>
+                        <p className="text-base italic text-muted-foreground">
+                          &ldquo;{testimonial.quote}&rdquo;
+                        </p>
+                        <p className="mt-4 font-semibold text-foreground">
+                          - {testimonial.name}
+                        </p>
+                      </CardContent>
+                    </Card>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </FadeInSection>
     </section>
