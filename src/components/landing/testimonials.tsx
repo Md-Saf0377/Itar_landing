@@ -1,3 +1,4 @@
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import FadeInSection from "./fade-in-section";
@@ -23,6 +24,20 @@ const testimonials = [
     image: "https://picsum.photos/100/100?random=3",
     imageHint: "woman portrait",
     quote: "Crystal Saffron is a masterpiece. It's spicy, sophisticated, and perfect for special occasions. Kaab Fragrances has a customer for life in me. The quality is simply unmatched.",
+  },
+  {
+    name: "Alex D.",
+    avatar: "AD",
+    image: "https://picsum.photos/100/100?random=4",
+    imageHint: "person portrait",
+    quote: "Oud Wood is pure luxury. The scent is rich, deep, and incredibly long-lasting. I feel like royalty whenever I wear it. I'll definitely be exploring more from the collection.",
+  },
+  {
+    name: "Emily R.",
+    avatar: "ER",
+    image: "https://picsum.photos/100/100?random=5",
+    imageHint: "woman smiling",
+    quote: "I am in love with the Sunkissed Citrus. It's so fresh and uplifting, perfect for daytime wear. It's like a bottle of sunshine! I'm so glad I found this brand.",
   },
 ];
 
