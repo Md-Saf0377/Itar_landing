@@ -13,6 +13,7 @@ import Footer from '@/components/landing/footer';
 import { cn } from '@/lib/utils';
 import PerfumeCard from '@/components/landing/perfume-card';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import FadeInSection from '@/components/landing/fade-in-section';
 
 const sizes = [
   { size: 3, label: 'Travel Size' },
@@ -130,16 +131,18 @@ export default function PerfumePage() {
         </TooltipProvider>
 
         <section className="w-full bg-secondary py-12 md:py-24 lg:py-32">
-          <div className="container mx-auto px-4 md:px-6">
-            <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
-              We Also Recommend
-            </h2>
-            <div className="mx-auto grid grid-cols-2 gap-8 lg:grid-cols-4">
-              {recommendedPerfumes.map((p) => (
-                <PerfumeCard key={p.name} perfume={p} />
-              ))}
+          <FadeInSection>
+            <div className="container mx-auto px-4 md:px-6">
+              <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
+                We Also Recommend
+              </h2>
+              <div className="mx-auto grid grid-cols-2 gap-8 lg:grid-cols-4">
+                {recommendedPerfumes.map((p) => (
+                  <PerfumeCard key={p.name} perfume={p} />
+                ))}
+              </div>
             </div>
-          </div>
+          </FadeInSection>
         </section>
 
       </main>
