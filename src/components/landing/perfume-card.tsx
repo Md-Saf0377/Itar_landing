@@ -90,7 +90,7 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
                 </div>
               </div>
             </CardContent>
-            <CardFooter className="flex gap-2 p-6 pt-0">
+            <CardFooter className="flex flex-col items-center gap-2 p-6 pt-0">
                 <Button
                   onClick={(e) => {
                     e.preventDefault();
