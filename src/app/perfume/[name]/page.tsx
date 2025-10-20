@@ -12,14 +12,19 @@ import Header from '@/components/landing/header';
 import Footer from '@/components/landing/footer';
 import { cn } from '@/lib/utils';
 import PerfumeCard from '@/components/landing/perfume-card';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
-const sizes = [3, 6, 12];
+const sizes = [
+  { size: 3, label: 'Travel Size' },
+  { size: 6, label: 'Regular Size' },
+  { size: 12, label: 'Full Size' },
+];
 
 export default function PerfumePage() {
   const params = useParams();
   const [perfume, setPerfume] = useState<Perfume | null>(null);
   const [recommendedPerfumes, setRecommendedPerfumes] = useState<Perfume[]>([]);
-  const [selectedSize, setSelectedSize] = useState<number>(sizes[0]);
+  const [selectedSize, setSelectedSize] = useState<number>(sizes[0].size);
   const { addToCart } = useCart();
 
   useEffect(() => {
@@ -54,67 +59,75 @@ export default function PerfumePage() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <div className="container mx-auto px-4 py-12 md:px-6 md:py-24">
-          <div className="grid gap-12 md:grid-cols-2">
-            <div className="relative aspect-square">
-              <Image
-                src={imageUrl}
-                alt={`Image of ${name}`}
-                fill
-                className="rounded-lg object-cover shadow-lg"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                data-ai-hint={imageHint}
-                priority
-              />
-            </div>
-            <div className="flex flex-col justify-center space-y-6">
-              <h1 className="font-headline text-4xl font-bold md:text-5xl">{name}</h1>
-              <p className="text-lg text-muted-foreground">{description}</p>
-               <div className="mt-4">
-                <span className="text-sm font-medium text-muted-foreground">Size:</span>
-                <div className="mt-2 flex gap-2">
-                  {sizes.map((size) => (
-                    <Button
-                      key={size}
-                      variant="outline"
-                      size="sm"
-                      onClick={() => setSelectedSize(size)}
-                       className={cn(
-                        'border border-black/20 bg-white/20 text-foreground backdrop-blur-sm',
-                        selectedSize === size
-                          ? 'bg-black text-white'
-                          : 'hover:bg-black/10'
-                      )}
-                    >
-                      {size}ml
-                    </Button>
-                  ))}
-                </div>
+        <TooltipProvider>
+          <div className="container mx-auto px-4 py-12 md:px-6 md:py-24">
+            <div className="grid gap-12 md:grid-cols-2">
+              <div className="relative aspect-square">
+                <Image
+                  src={imageUrl}
+                  alt={`Image of ${name}`}
+                  fill
+                  className="rounded-lg object-cover shadow-lg"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  data-ai-hint={imageHint}
+                  priority
+                />
               </div>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Button
-                  size="lg"
-                  onClick={() => addToCart({ ...perfume, size: selectedSize })}
-                  className="border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/30"
-                >
-                  Add to Cart
-                </Button>
-                <a href={mailtoLink} className="w-full sm:w-auto">
+              <div className="flex flex-col justify-center space-y-6">
+                <h1 className="font-headline text-4xl font-bold md:text-5xl">{name}</h1>
+                <p className="text-lg text-muted-foreground">{description}</p>
+                 <div className="mt-4">
+                  <span className="text-sm font-medium text-muted-foreground">Size:</span>
+                  <div className="mt-2 flex gap-2">
+                    {sizes.map(({ size, label }) => (
+                       <Tooltip key={size}>
+                          <TooltipTrigger asChild>
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => setSelectedSize(size)}
+                               className={cn(
+                                'border border-black/20 bg-white/20 text-foreground backdrop-blur-sm',
+                                selectedSize === size
+                                  ? 'bg-black text-white'
+                                  : 'hover:bg-black/10'
+                              )}
+                            >
+                              {size}ml
+                            </Button>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>{label}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-col gap-4 sm:flex-row">
                   <Button
                     size="lg"
-                    variant="outline"
-                    className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm hover:bg-black hover:text-white active:bg-black active:text-white"
+                    onClick={() => addToCart({ ...perfume, size: selectedSize })}
+                    className="border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/30"
                   >
-                    Buy Now
+                    Add to Cart
                   </Button>
-                </a>
+                  <a href={mailtoLink} className="w-full sm:w-auto">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm hover:bg-black hover:text-white active:bg-black active:text-white"
+                    >
+                      Buy Now
+                    </Button>
+                  </a>
+                </div>
+                <Link href="/" className="mt-4 inline-block text-sm text-muted-foreground hover:underline">
+                  &larr; Back to shopping
+                </Link>
               </div>
-              <Link href="/" className="mt-4 inline-block text-sm text-muted-foreground hover:underline">
-                &larr; Back to shopping
-              </Link>
             </div>
           </div>
-        </div>
+        </TooltipProvider>
 
         <section className="w-full bg-secondary py-12 md:py-24 lg:py-32">
           <div className="container mx-auto px-4 md:px-6">
@@ -134,3 +147,4 @@ export default function PerfumePage() {
     </div>
   );
 }
+
