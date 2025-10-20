@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <section id="home" className="relative h-[80vh] w-full overflow-hidden">
       <Image
-        src="https://picsum.photos/1920/1080"
+        src="/images/itar_heroweb.jpg"
         alt="Elegant perfume display"
         fill
         className="object-cover animate-zoom-in"
