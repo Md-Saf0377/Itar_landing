@@ -3,6 +3,7 @@
 
 import type { Perfume } from '@/lib/perfumes';
 import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { useToast } from '@/hooks/use-toast';
 
 export type CartItem = Perfume & {
   id: string; // Unique identifier for the cart item (e.g., name-size)
@@ -22,6 +23,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const { toast } = useToast();
 
   const addToCart = (item: Perfume & { size: number }) => {
     setCartItems((prevItems) => {
@@ -35,6 +37,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         );
       }
       return [...prevItems, { ...item, id: itemId, quantity: 1 }];
+    });
+    toast({
+      title: "Item Added to Cart",
+      description: `${item.name} (${item.size}ml) has been added to your cart.`,
     });
   };
 
