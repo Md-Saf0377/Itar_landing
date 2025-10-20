@@ -107,7 +107,7 @@ export default function PerfumePage() {
                   <Button
                     size="lg"
                     onClick={() => addToCart({ ...perfume, size: selectedSize })}
-                    className="border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:border-black/30 hover:bg-white/30"
+                    className="border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:bg-black hover:text-white"
                   >
                     Add to Cart
                   </Button>

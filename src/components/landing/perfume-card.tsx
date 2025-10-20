@@ -97,7 +97,7 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
                     e.stopPropagation();
                     addToCart({ ...perfume, size: selectedSize });
                   }}
-                  className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-all duration-300 ease-in-out hover:border-black/30 hover:bg-white/30 hover:scale-105"
+                  className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-all duration-300 ease-in-out hover:bg-black hover:text-white hover:scale-105"
                 >
                   Add to Cart
                 </Button>
