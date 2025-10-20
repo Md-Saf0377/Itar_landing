@@ -121,7 +121,7 @@ export default function PerfumePage() {
             <h2 className="mb-12 text-center font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
               We Also Recommend
             </h2>
-            <div className="mx-auto grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mx-auto grid grid-cols-2 gap-8 lg:grid-cols-4">
               {recommendedPerfumes.map((p) => (
                 <PerfumeCard key={p.name} perfume={p} />
               ))}
