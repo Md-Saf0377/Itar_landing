@@ -26,7 +26,7 @@ export default function HeroSection() {
         <Link href="#collection" className="mt-8" prefetch={false}>
           <Button
             size="lg"
-            className="border border-white/30 bg-white/10 text-white backdrop-blur-sm transition-colors hover:border-white/50 hover:bg-white/20"
+            className="border border-white/30 bg-white/10 text-white backdrop-blur-sm transition-all duration-300 ease-in-out hover:border-white/50 hover:bg-white/20 hover:scale-105 hover:shadow-lg"
           >
             Explore Collection
           </Button>
