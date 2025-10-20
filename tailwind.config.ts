@@ -98,11 +98,16 @@ export default {
             transform: 'translateY(0)',
           },
         },
+        'zoom-in': {
+          '0%': { transform: 'scale(1)' },
+          '100%': { transform: 'scale(1.05)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in-up': 'fade-in-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both',
+        'zoom-in': 'zoom-in 10s ease-out forwards',
       },
     },
   },

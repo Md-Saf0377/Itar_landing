@@ -4,12 +4,12 @@ import { Button } from '@/components/ui/button';
 
 export default function HeroSection() {
   return (
-    <section id="home" className="relative h-[80vh] w-full">
+    <section id="home" className="relative h-[80vh] w-full overflow-hidden">
       <Image
         src="https://picsum.photos/1920/1080"
         alt="Elegant perfume display"
         fill
-        className="object-cover"
+        className="object-cover animate-zoom-in"
         data-ai-hint="perfume display"
         priority
       />
