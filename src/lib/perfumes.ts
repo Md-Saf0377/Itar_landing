@@ -14,9 +14,9 @@ export const perfumes: Perfume[] = [
         imageHint: 'perfume bottle',
     },
     {
-        name: 'Vanilla Powder',
-        description: 'A warm and comforting scent of vanilla, coconut, and white musk.',
-        imageUrl: 'https://images.pexels.com/photos/16057236/pexels-photo-16057236/free-photo-of-close-up-of-chanel-perfume.jpeg',
+        name: 'Misk Rijali',
+        description: 'A captivating and masculine scent with deep woody notes.',
+        imageUrl: '/images/misk-rijali.jpg',
         imageHint: 'perfume bottle',
     },
     {

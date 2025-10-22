@@ -20,7 +20,7 @@ import { ThemeToggle } from './theme-toggle';
 
 const bestsellers = [
   { title: "Radical Rose", href: "#bestsellers" },
-  { title: "Vanilla Powder", href: "#bestsellers" },
+  { title: "Misk Rijali", href: "#bestsellers" },
   { title: "Crystal Saffron", href: "#bestsellers" },
   { title: "Gift set", href: "#bestsellers" },
   { title: "Samples", href: "#bestsellers" },
