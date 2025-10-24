@@ -74,7 +74,7 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
                             onClick={(e) => handleSizeClick(e, size)}
                             className={cn(
                               'border-input bg-transparent text-foreground backdrop-blur-sm transition-all duration-300 ease-in-out hover:bg-accent hover:text-accent-foreground',
-                              selectedSize === size && 'bg-primary text-primary-foreground hover:bg-primary/90'
+                              selectedSize === size ? 'bg-black text-white hover:bg-black/80' : ''
                             )}
                           >
                             {size}ml
