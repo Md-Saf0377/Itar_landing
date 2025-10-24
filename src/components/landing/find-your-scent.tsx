@@ -97,7 +97,7 @@ export default function FindYourScent() {
   const currentQuestion = quizQuestions[currentStep];
 
   return (
-    <section id="find-your-scent" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50 relative overflow-hidden">
+    <section id="find-your-scent" className="relative w-full overflow-hidden bg-secondary py-12 md:py-24 lg:py-32">
       <div className="absolute inset-0 z-0 opacity-10">
         {/* Subtle golden geometric accents */}
         <div 
