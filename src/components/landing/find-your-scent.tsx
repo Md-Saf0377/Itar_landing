@@ -6,8 +6,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
-import { Flame, Leaf, Moon, PartyPopper, Sun } from 'lucide-react';
-import { FloralIcon, WoodyIcon, FreshIcon, SweetIcon, OrientalIcon } from './scent-icons';
 import FadeInSection from './fade-in-section';
 
 const quizQuestions = [
@@ -15,52 +13,52 @@ const quizQuestions = [
     step: 1,
     question: 'Which scent family are you drawn to?',
     options: [
-      { text: 'Floral', icon: FloralIcon },
-      { text: 'Woody', icon: WoodyIcon },
-      { text: 'Fresh', icon: FreshIcon },
-      { text: 'Sweet', icon: SweetIcon },
-      { text: 'Spicy/Oriental', icon: OrientalIcon },
+      { text: 'Floral' },
+      { text: 'Woody' },
+      { text: 'Fresh' },
+      { text: 'Sweet' },
+      { text: 'Spicy/Oriental' },
     ],
   },
   {
     step: 2,
     question: 'What occasion do you have in mind?',
     options: [
-      { text: 'Everyday Wear', icon: Sun },
-      { text: 'Special Evening', icon: Moon },
-      { text: 'A Night Out', icon: PartyPopper },
-      { text: 'Work & Office', icon: Leaf },
-      { text: 'A Relaxing Day', icon: Flame },
+      { text: 'Everyday Wear' },
+      { text: 'Special Evening' },
+      { text: 'A Night Out' },
+      { text: 'Work & Office' },
+      { text: 'A Relaxing Day' },
     ],
   },
   {
     step: 3,
     question: 'How would you describe your style?',
     options: [
-        { text: 'Elegant & Classic', icon: Sun },
-        { text: 'Modern & Bold', icon: Sun },
-        { text: 'Natural & Earthy', icon: Sun },
-        { text: 'Romantic & Dreamy', icon: Sun },
-        { text: 'Minimalist & Chic', icon: Sun },
+        { text: 'Elegant & Classic' },
+        { text: 'Modern & Bold' },
+        { text: 'Natural & Earthy' },
+        { text: 'Romantic & Dreamy' },
+        { text: 'Minimalist & Chic' },
     ],
   },
     {
     step: 4,
     question: 'How strong do you prefer your fragrance?',
     options: [
-        { text: 'Subtle & Light', icon: Sun },
-        { text: 'Noticeable', icon: Sun },
-        { text: 'Bold & Long-lasting', icon: Sun },
+        { text: 'Subtle & Light' },
+        { text: 'Noticeable' },
+        { text: 'Bold & Long-lasting' },
     ],
   },
    {
     step: 5,
     question: 'Choose a key ingredient that appeals to you:',
     options: [
-        { text: 'Rose', icon: FloralIcon },
-        { text: 'Sandalwood', icon: WoodyIcon },
-        { text: 'Bergamot', icon: FreshIcon },
-        { text: 'Oud', icon: OrientalIcon },
+        { text: 'Rose' },
+        { text: 'Sandalwood' },
+        { text: 'Bergamot' },
+        { text: 'Oud' },
     ],
   },
 ];
@@ -113,7 +111,7 @@ export default function FindYourScent() {
         <FadeInSection>
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-5xl">
+              <h2 className="font-headline text-3xl font-bold tracking-tighter text-foreground sm:text-5xl">
                 Find Your Perfect Scent
               </h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -147,7 +145,6 @@ export default function FindYourScent() {
                             : 'border-border/50 hover:border-black hover:bg-black hover:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-black'
                         )}
                       >
-                        <option.icon className="h-10 w-10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:text-white dark:group-hover:text-black" />
                         <span className="text-sm font-medium text-foreground group-hover:text-white dark:group-hover:text-black">{option.text}</span>
                       </button>
                     ))}
