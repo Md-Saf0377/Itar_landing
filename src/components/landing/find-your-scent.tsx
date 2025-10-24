@@ -6,62 +6,61 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
-import { Citrus, Flower, Leaf, Flame, Sun } from 'lucide-react';
+import { Flame, Leaf, Moon, PartyPopper, Sun } from 'lucide-react';
 import { FloralIcon, WoodyIcon, FreshIcon, SweetIcon, OrientalIcon } from './scent-icons';
 import FadeInSection from './fade-in-section';
 
 const quizQuestions = [
   {
     step: 1,
-    question: 'What’s your preferred mood?',
+    question: 'Which scent family are you drawn to?',
     options: [
-      { text: 'Fresh & Uplifting', icon: FreshIcon },
-      { text: 'Warm & Cozy', icon: SweetIcon },
-      { text: 'Elegant & Sophisticated', icon: FloralIcon },
-      { text: 'Earthy & Natural', icon: WoodyIcon },
-      { text: 'Bold & Mysterious', icon: OrientalIcon },
+      { text: 'Floral', icon: FloralIcon },
+      { text: 'Woody', icon: WoodyIcon },
+      { text: 'Fresh', icon: FreshIcon },
+      { text: 'Sweet', icon: SweetIcon },
+      { text: 'Spicy/Oriental', icon: OrientalIcon },
     ],
   },
   {
     step: 2,
-    question: 'Choose a landscape that calls to you:',
+    question: 'What occasion do you have in mind?',
     options: [
-      { text: 'A sun-drenched beach', icon: Sun },
-      { text: 'A blooming rose garden', icon: Flower },
-      { text: 'A misty forest at dawn', icon: Leaf },
-      { text: 'A bustling spice market', icon: Flame },
-      { text: 'A vibrant citrus grove', icon: Citrus },
+      { text: 'Everyday Wear', icon: Sun },
+      { text: 'Special Evening', icon: Moon },
+      { text: 'A Night Out', icon: PartyPopper },
+      { text: 'Work & Office', icon: Leaf },
+      { text: 'A Relaxing Day', icon: Flame },
     ],
   },
   {
     step: 3,
-    question: 'What time of day do you feel most alive?',
+    question: 'How would you describe your style?',
     options: [
-        { text: 'Morning Freshness', icon: Sun },
-        { text: 'Sunlit Afternoon', icon: Sun },
-        { text: 'Golden Hour', icon: Sun },
-        { text: 'Enchanting Evening', icon: Sun },
-        { text: 'Mysterious Midnight', icon: Sun },
+        { text: 'Elegant & Classic', icon: Sun },
+        { text: 'Modern & Bold', icon: Sun },
+        { text: 'Natural & Earthy', icon: Sun },
+        { text: 'Romantic & Dreamy', icon: Sun },
+        { text: 'Minimalist & Chic', icon: Sun },
     ],
   },
     {
     step: 4,
-    question: 'Which element do you connect with?',
+    question: 'How strong do you prefer your fragrance?',
     options: [
-        { text: 'Air', icon: Sun },
-        { text: 'Water', icon: Sun },
-        { text: 'Earth', icon: Sun },
-        { text: 'Fire', icon: Sun },
+        { text: 'Subtle & Light', icon: Sun },
+        { text: 'Noticeable', icon: Sun },
+        { text: 'Bold & Long-lasting', icon: Sun },
     ],
   },
    {
     step: 5,
-    question: 'Select a fabric that feels like you:',
+    question: 'Choose a key ingredient that appeals to you:',
     options: [
-        { text: 'Linen', icon: Sun },
-        { text: 'Silk', icon: Sun },
-        { text: 'Velvet', icon: Sun },
-        { text: 'Cashmere', icon: Sun },
+        { text: 'Rose', icon: FloralIcon },
+        { text: 'Sandalwood', icon: WoodyIcon },
+        { text: 'Bergamot', icon: FreshIcon },
+        { text: 'Oud', icon: OrientalIcon },
     ],
   },
 ];
