@@ -133,13 +133,13 @@ export default function FindYourScent() {
                   <h3 className="mb-8 text-center font-headline text-2xl font-semibold md:text-3xl">
                     {currentQuestion.question}
                   </h3>
-                  <div className="grid grid-cols-2 justify-center gap-4 md:grid-cols-3 lg:grid-cols-5">
+                  <div className="flex flex-wrap justify-center gap-4">
                     {currentQuestion.options.map((option) => (
                       <button
                         key={option.text}
                         onClick={() => handleOptionClick(option.text)}
                         className={cn(
-                          'group flex flex-col items-center justify-center gap-3 rounded-lg border-2 p-4 text-center transition-all duration-300',
+                          'group flex w-40 flex-col items-center justify-center gap-3 rounded-lg border-2 p-4 text-center transition-all duration-300',
                           selectedAnswers[currentStep] === option.text
                             ? 'border-primary bg-primary/10'
                             : 'border-border/50 hover:border-black hover:bg-black hover:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-black'
