@@ -144,11 +144,11 @@ export default function FindYourScent() {
                           'group flex flex-col items-center justify-center gap-3 rounded-lg border-2 p-4 text-center transition-all duration-300',
                           selectedAnswers[currentStep] === option.text
                             ? 'border-primary bg-primary/10'
-                            : 'border-border/50 hover:border-black hover:bg-black hover:text-white'
+                            : 'border-border/50 hover:border-black hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black'
                         )}
                       >
-                        <option.icon className="h-10 w-10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:text-white" />
-                        <span className="text-sm font-medium text-foreground group-hover:text-white">{option.text}</span>
+                        <option.icon className="h-10 w-10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:text-white dark:group-hover:text-black" />
+                        <span className="text-sm font-medium text-foreground group-hover:text-white dark:group-hover:text-black">{option.text}</span>
                       </button>
                     ))}
                   </div>
