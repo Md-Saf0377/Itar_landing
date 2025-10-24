@@ -20,7 +20,7 @@ export default function CategoriesSection() {
                             </p>
                         </div>
                     </div>
-                    <div className="mx-auto grid grid-cols-1 gap-8 pt-12 sm:grid-cols-2 lg:grid-cols-4">
+                    <div className="mx-auto grid grid-cols-2 gap-8 pt-12 lg:grid-cols-4">
                         {categoryPerfumes.map((perfume) => (
                             <PerfumeCard key={perfume.name} perfume={perfume} />
                         ))}
