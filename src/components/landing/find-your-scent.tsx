@@ -175,7 +175,7 @@ export default function FindYourScent() {
                   <p className="mt-4 text-lg text-muted-foreground">
                     Based on your answers, your perfect scent is waiting.
                   </p>
-                  <p className="mt-2 font-bold text-2xl text-primary">{recommendedScent?.name || 'Radical Rose'}</p>
+                  <p className="mt-2 font-bold text-2xl text-foreground">{recommendedScent?.name || 'Radical Rose'}</p>
                    <div className="mt-8 flex justify-center">
                         <Button 
                           onClick={resetQuiz}
