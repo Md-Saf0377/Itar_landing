@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
 import FadeInSection from './fade-in-section';
+import { perfumes, Perfume } from '@/lib/perfumes';
 
 const quizQuestions = [
   {
@@ -67,6 +68,7 @@ export default function FindYourScent() {
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<(string | null)[]>(Array(quizQuestions.length).fill(null));
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const [recommendedScent, setRecommendedScent] = useState<Perfume | null>(null);
 
   const handleOptionClick = (optionText: string) => {
     const newAnswers = [...selectedAnswers];
@@ -81,14 +83,25 @@ export default function FindYourScent() {
   };
 
   const handleDiscoverClick = () => {
+    // Simple logic to pick a scent based on answers.
+    // This can be replaced with a more sophisticated algorithm or AI call.
+    const answerString = selectedAnswers.join('');
+    let hash = 0;
+    for (let i = 0; i < answerString.length; i++) {
+      const char = answerString.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Convert to 32bit integer
+    }
+    const index = Math.abs(hash) % perfumes.length;
+    setRecommendedScent(perfumes[index]);
     setQuizCompleted(true);
-    // In a real app, you would process the answers and show the result.
   };
 
   const resetQuiz = () => {
     setCurrentStep(0);
     setSelectedAnswers(Array(quizQuestions.length).fill(null));
     setQuizCompleted(false);
+    setRecommendedScent(null);
   }
 
   const progress = ((currentStep + 1) / quizQuestions.length) * 100;
@@ -168,7 +181,7 @@ export default function FindYourScent() {
                   <p className="mt-4 text-lg text-muted-foreground">
                     Based on your answers, your perfect scent is waiting.
                   </p>
-                  <p className="mt-2 font-bold text-2xl text-primary">Radical Rose</p>
+                  <p className="mt-2 font-bold text-2xl text-primary">{recommendedScent?.name || 'Radical Rose'}</p>
                    <div className="mt-8 flex justify-center">
                         <Button 
                           onClick={resetQuiz}
