@@ -122,7 +122,7 @@ export default function FindYourScent() {
         </FadeInSection>
         <div className="mx-auto mt-12 max-w-4xl">
         <FadeInSection>
-          <Card className="rounded-xl border-2 border-primary/10 bg-background/80 shadow-2xl shadow-primary/5 backdrop-blur-md">
+          <Card className="rounded-xl border-2 border-primary/20 bg-background/80 shadow-2xl shadow-primary/5 backdrop-blur-md">
             <CardContent className="p-6 md:p-10">
               {!quizCompleted ? (
                 <>
@@ -145,7 +145,7 @@ export default function FindYourScent() {
                             : 'border-border/50 hover:border-black hover:bg-black hover:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-black'
                         )}
                       >
-                        <span className="text-sm font-medium text-foreground group-hover:text-white dark:group-hover:text-black">{option.text}</span>
+                        <span className="text-sm font-medium group-hover:text-white dark:group-hover:text-black">{option.text}</span>
                       </button>
                     ))}
                   </div>
