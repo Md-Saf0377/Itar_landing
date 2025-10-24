@@ -70,22 +70,10 @@ export default function FindYourScent() {
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [recommendedScent, setRecommendedScent] = useState<Perfume | null>(null);
 
-  const handleOptionClick = (optionText: string) => {
-    const newAnswers = [...selectedAnswers];
-    newAnswers[currentStep] = optionText;
-    setSelectedAnswers(newAnswers);
-
-    if (currentStep < quizQuestions.length - 1) {
-      setTimeout(() => {
-        setCurrentStep(currentStep + 1);
-      }, 300);
-    }
-  };
-
-  const handleDiscoverClick = () => {
+  const handleDiscoverScent = (answers: (string | null)[]) => {
     // Simple logic to pick a scent based on answers.
     // This can be replaced with a more sophisticated algorithm or AI call.
-    const answerString = selectedAnswers.join('');
+    const answerString = answers.join('');
     let hash = 0;
     for (let i = 0; i < answerString.length; i++) {
       const char = answerString.charCodeAt(i);
@@ -96,6 +84,24 @@ export default function FindYourScent() {
     setRecommendedScent(perfumes[index]);
     setQuizCompleted(true);
   };
+
+
+  const handleOptionClick = (optionText: string) => {
+    const newAnswers = [...selectedAnswers];
+    newAnswers[currentStep] = optionText;
+    setSelectedAnswers(newAnswers);
+
+    if (currentStep < quizQuestions.length - 1) {
+      setTimeout(() => {
+        setCurrentStep(currentStep + 1);
+      }, 300);
+    } else {
+       setTimeout(() => {
+         handleDiscoverScent(newAnswers);
+       }, 300);
+    }
+  };
+
 
   const resetQuiz = () => {
     setCurrentStep(0);
@@ -162,18 +168,6 @@ export default function FindYourScent() {
                       </button>
                     ))}
                   </div>
-                   {currentStep === quizQuestions.length - 1 && selectedAnswers[currentStep] && (
-                     <div className="mt-10 flex justify-center">
-                        <Button 
-                          size="lg"
-                          onClick={handleDiscoverClick}
-                          className="bg-primary text-primary-foreground shadow-lg transition-all duration-300 ease-in-out hover:shadow-primary/40 hover:scale-105 hover:bg-opacity-90"
-                          style={{backgroundColor: '#C9ADA7'}}
-                        >
-                            Discover My Scent
-                        </Button>
-                     </div>
-                   )}
                 </>
               ) : (
                 <div className="text-center">
