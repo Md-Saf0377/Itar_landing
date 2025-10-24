@@ -88,10 +88,8 @@ export default function PerfumePage() {
                               size="sm"
                               onClick={() => setSelectedSize(size)}
                                className={cn(
-                                'border border-black/20 bg-white/20 text-foreground backdrop-blur-sm dark:border-white/20 dark:bg-black/20',
-                                selectedSize === size
-                                  ? 'bg-black text-white dark:bg-white dark:text-black'
-                                  : 'hover:bg-black/10 dark:hover:bg-white/10'
+                                'border-input bg-transparent text-foreground backdrop-blur-sm transition-all duration-300 ease-in-out hover:bg-accent hover:text-accent-foreground',
+                                selectedSize === size && 'bg-primary text-primary-foreground hover:bg-primary/90'
                               )}
                             >
                               {size}ml
@@ -108,15 +106,14 @@ export default function PerfumePage() {
                   <Button
                     size="lg"
                     onClick={() => addToCart({ ...perfume, size: selectedSize })}
-                    className="border border-black/20 bg-white/20 text-foreground backdrop-blur-sm transition-colors hover:bg-black hover:text-white dark:border-white/20 dark:bg-black/20 dark:hover:bg-white dark:hover:text-black"
                   >
                     Add to Cart
                   </Button>
                   <a href={mailtoLink} className="w-full sm:w-auto">
                     <Button
                       size="lg"
-                      variant="outline"
-                      className="w-full border border-black/20 bg-white/20 text-foreground backdrop-blur-sm hover:bg-black hover:text-white active:bg-black active:text-white dark:border-white/20 dark:bg-black/20 dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
+                      variant="secondary"
+                      className="w-full"
                     >
                       Buy Now
                     </Button>
