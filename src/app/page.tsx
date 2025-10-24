@@ -4,6 +4,7 @@ import BestsellerSection from '@/components/landing/bestseller';
 import CategoriesSection from '@/components/landing/categories';
 import CollectionSection from '@/components/landing/collection';
 import ContactSection from '@/components/landing/contact';
+import FindYourScent from '@/components/landing/find-your-scent';
 import Footer from '@/components/landing/footer';
 import Header from '@/components/landing/header';
 import HeroSection from '@/components/landing/hero';
@@ -48,6 +49,7 @@ export default function Home() {
         <CategoriesSection />
         <CollectionSection />
         <TestimonialsSection />
+        <FindYourScent />
         <ContactSection />
       </main>
       <Footer />
