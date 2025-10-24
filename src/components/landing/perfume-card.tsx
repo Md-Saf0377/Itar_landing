@@ -48,7 +48,7 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
         className="flex h-full w-full">
           <Card className="flex h-full w-full transform flex-col overflow-hidden rounded-lg bg-card shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
             <CardHeader className="p-0">
-              <div className="relative h-64 w-full">
+              <div className="relative h-48 w-full">
                 <Image
                   src={imageUrl}
                   alt={`Image of ${name}`}
