@@ -158,7 +158,7 @@ export default function FindYourScent() {
                             : 'border-border/50 hover:border-black hover:bg-black hover:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-black'
                         )}
                       >
-                        <span className="text-sm font-medium group-hover:text-white dark:group-hover:text-black">{option.text}</span>
+                        <span className="text-sm font-medium">{option.text}</span>
                       </button>
                     ))}
                   </div>
@@ -186,8 +186,7 @@ export default function FindYourScent() {
                         <Button 
                           onClick={resetQuiz}
                           size="lg"
-                          className="bg-primary text-primary-foreground shadow-lg transition-all duration-300 ease-in-out hover:shadow-primary/40 hover:scale-105 hover:bg-opacity-90"
-                          style={{backgroundColor: '#C9ADA7'}}
+                          className="bg-primary text-primary-foreground shadow-lg transition-all duration-300 ease-in-out hover:shadow-primary/40 hover:scale-105 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
                         >
                             Take Again
                         </Button>
