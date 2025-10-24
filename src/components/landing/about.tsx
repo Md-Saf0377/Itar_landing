@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { Leaf, Droplets, Flower } from 'lucide-react';
 import FadeInSection from './fade-in-section';
@@ -55,9 +56,6 @@ export default function AboutSection() {
                     className="object-cover transition-transform duration-300 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-lg font-semibold">{ingredient.name}</h3>
-                  </div>
                 </div>
               </FadeInSection>
             ))}
@@ -71,9 +69,6 @@ export default function AboutSection() {
                     className="object-cover transition-transform duration-300 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-lg font-semibold">{ingredients[2].name}</h3>
-                  </div>
                 </div>
               </FadeInSection>
           </div>
