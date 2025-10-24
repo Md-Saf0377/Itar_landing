@@ -34,8 +34,28 @@ const categories = [
   { title: "Discovery Set", href: "#categories" },
 ]
 
+const mobileNavLinks = [
+  { href: "#home", label: "Home" },
+  { href: "#bestsellers", label: "Bestsellers" },
+  { href: "#categories", label: "Categories" },
+  { href: "#about", label: "About" },
+  { href: "#testimonials", label: "Testimonials" },
+  { href: "#contact", label: "Contact" },
+]
+
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+  const handleMobileLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 px-4 py-2 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-6">
@@ -152,12 +172,16 @@ export default function Header() {
                   <SheetTitle>Menu</SheetTitle>
                 </SheetHeader>
                 <nav className="mt-4 flex flex-col space-y-4">
-                  <Link href="#home" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-                  <Link href="#bestsellers" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Bestsellers</Link>
-                  <Link href="#categories" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Categories</Link>
-                  <Link href="#about" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-                  <Link href="#testimonials" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</Link>
-                  <Link href="#contact" className="text-lg" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+                  {mobileNavLinks.map(({ href, label }) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      className="text-lg"
+                      onClick={(e) => handleMobileLinkClick(e, href)}
+                    >
+                      {label}
+                    </Link>
+                  ))}
                 </nav>
               </SheetContent>
             </Sheet>

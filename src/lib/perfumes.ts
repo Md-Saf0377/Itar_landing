@@ -16,7 +16,7 @@ export const perfumes: Perfume[] = [
     {
         name: 'Misk Rijali',
         description: 'A captivating and masculine scent with deep woody notes.',
-        imageUrl: '/images/misk-rijali.jpg',
+        imageUrl: '/images/misk_rijali.png',
         imageHint: 'perfume bottle',
     },
     {
