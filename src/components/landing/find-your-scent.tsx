@@ -113,7 +113,7 @@ export default function FindYourScent() {
         <FadeInSection>
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-5xl" style={{color: '#22223B'}}>
+              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-5xl">
                 Find Your Perfect Scent
               </h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -132,7 +132,7 @@ export default function FindYourScent() {
                     <p className="mb-2 text-sm font-medium text-muted-foreground">Step {currentQuestion.step} of {quizQuestions.length}</p>
                     <Progress value={progress} className="h-2 w-full" />
                   </div>
-                  <h3 className="mb-8 text-center font-headline text-2xl font-semibold md:text-3xl" style={{color: '#22223B'}}>
+                  <h3 className="mb-8 text-center font-headline text-2xl font-semibold md:text-3xl">
                     {currentQuestion.question}
                   </h3>
                   <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
@@ -144,7 +144,7 @@ export default function FindYourScent() {
                           'group flex flex-col items-center justify-center gap-3 rounded-lg border-2 p-4 text-center transition-all duration-300',
                           selectedAnswers[currentStep] === option.text
                             ? 'border-primary bg-primary/10'
-                            : 'border-border/50 hover:border-black hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black'
+                            : 'border-border/50 hover:border-black hover:bg-black hover:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-black'
                         )}
                       >
                         <option.icon className="h-10 w-10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:text-white dark:group-hover:text-black" />
@@ -167,7 +167,7 @@ export default function FindYourScent() {
                 </>
               ) : (
                 <div className="text-center">
-                  <h3 className="font-headline text-3xl font-bold" style={{color: '#22223B'}}>Thank you!</h3>
+                  <h3 className="font-headline text-3xl font-bold">Thank you!</h3>
                   <p className="mt-4 text-lg text-muted-foreground">
                     Based on your answers, your perfect scent is waiting.
                   </p>
