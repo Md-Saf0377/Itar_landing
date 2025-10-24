@@ -133,7 +133,7 @@ export default function FindYourScent() {
                   <h3 className="mb-8 text-center font-headline text-2xl font-semibold md:text-3xl">
                     {currentQuestion.question}
                   </h3>
-                  <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+                  <div className="grid grid-cols-2 justify-center gap-4 md:grid-cols-3 lg:grid-cols-5">
                     {currentQuestion.options.map((option) => (
                       <button
                         key={option.text}
