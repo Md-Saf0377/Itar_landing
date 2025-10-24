@@ -47,9 +47,9 @@ export default function Home() {
         <AboutSection />
         <BestsellerSection />
         <CategoriesSection />
+        <FindYourScent />
         <CollectionSection />
         <TestimonialsSection />
-        <FindYourScent />
         <ContactSection />
       </main>
       <Footer />
