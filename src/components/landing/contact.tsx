@@ -40,12 +40,6 @@ export default function ContactSection() {
                 href="#"
                 prefetch={false}
                 className="text-muted-foreground transition-colors hover:text-foreground">
-                  <Facebook className="h-6 w-6" />
-              </Link>
-              <Link
-                href="#"
-                prefetch={false}
-                className="text-muted-foreground transition-colors hover:text-foreground">
                   <Twitter className="h-6 w-6" />
               </Link>
             </div>

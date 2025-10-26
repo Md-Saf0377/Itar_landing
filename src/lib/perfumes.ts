@@ -64,25 +64,25 @@ export const perfumes: Perfume[] = [
     {
         name: 'Creed Aventus',
         description: 'A confident and fruity scent with pineapple, blackcurrant, and birch.',
-        imageUrl: 'https://picsum.photos/seed/aventus/400/500',
+        imageUrl: '/images/creed_aventus.png',
         imageHint: 'classic perfume',
     },
     {
         name: 'Musk Rijali',
         description: 'A captivating and masculine scent with deep woody and musky notes.',
-        imageUrl: 'https://picsum.photos/seed/muskrijali/400/500',
+        imageUrl: '/images/musk_rijali.png',
         imageHint: 'men itar',
     },
     {
         name: 'Escada Collection',
         description: 'An exclusive collection of vibrant and exotic fruity fragrances.',
-        imageUrl: 'https://picsum.photos/seed/escada/400/500',
+        imageUrl: '/images/escada_collection.png',
         imageHint: 'colorful perfume',
     },
     {
         name: 'Feelings',
         description: 'An emotional and expressive fragrance with a blend of soft florals and warm woods.',
-        imageUrl: 'https://picsum.photos/seed/feelings/400/500',
+        imageUrl: '/images/feelings.png',
         imageHint: 'soft perfume',
     },
     {
