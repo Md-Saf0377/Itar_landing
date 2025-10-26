@@ -16,7 +16,7 @@ export default function WhatsAppButton({ isVisible }: WhatsAppButtonProps) {
       <Tooltip>
         <TooltipTrigger asChild>
           <Link
-            href="https://wa.me/1234567890"
+            href="https://wa.me/918088603853"
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
