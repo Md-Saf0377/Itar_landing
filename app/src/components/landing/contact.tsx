@@ -1,4 +1,4 @@
-import { Instagram, Mail, Phone, Twitter } from 'lucide-react';
+import { Instagram, Mail, Phone } from 'lucide-react';
 import Link from 'next/link';
 import FadeInSection from './fade-in-section';
 
