@@ -22,7 +22,7 @@ export default function CartSheet() {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
   const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-  const checkoutMailtoLink = `mailto:contact@kaabfragrances.com?subject=Order Inquiry&body=I would like to purchase the following items:%0A%0A${cartItems.map(item => `${item.quantity}x ${item.name} (${item.size}ml)`).join('%0A')}%0A%0APlease provide me with payment and shipping details.`;
+  const checkoutMailtoLink = `mailto:imadhussain9@gmail.com?subject=Order Inquiry&body=I would like to purchase the following items:%0A%0A${cartItems.map(item => `${item.quantity}x ${item.name} (${item.size}ml)`).join('%0A')}%0A%0APlease provide me with payment and shipping details.`;
 
   return (
     <Sheet>
@@ -46,7 +46,7 @@ export default function CartSheet() {
             <div className="flex-1 overflow-y-auto pr-4">
               <ul className="space-y-4">
                 {cartItems.map((item) => {
-                  const buyNowMailtoLink = `mailto:contact@kaabfragrances.com?subject=Order for ${encodeURIComponent(item.name)}&body=I would like to purchase ${encodeURIComponent(item.quantity)}x ${encodeURIComponent(item.name)} (${item.size}ml). Please provide me with payment and shipping details.`;
+                  const buyNowMailtoLink = `mailto:imadhussain9@gmail.com?subject=Order for ${encodeURIComponent(item.name)}&body=I would like to purchase ${encodeURIComponent(item.quantity)}x ${encodeURIComponent(item.name)} (${item.size}ml). Please provide me with payment and shipping details.`;
                   return (
                     <li key={item.id} className="flex items-start gap-4">
                       <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-md">

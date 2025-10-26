@@ -33,7 +33,7 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
   const { addToCart } = useCart();
   const [selectedSize, setSelectedSize] = useState<number>(sizes[0].size);
 
-  const mailtoLink = `mailto:contact@kaabfragrances.com?subject=Order for ${encodeURIComponent(name)} (${selectedSize}ml)&body=I would like to purchase ${encodeURIComponent(name)} (${selectedSize}ml). Please provide me with payment and shipping details.`;
+  const mailtoLink = `mailto:imadhussain9@gmail.com?subject=Order for ${encodeURIComponent(name)} (${selectedSize}ml)&body=I would like to purchase ${encodeURIComponent(name)} (${selectedSize}ml). Please provide me with payment and shipping details.`;
 
   const handleSizeClick = (e: React.MouseEvent, size: number) => {
     e.preventDefault();
