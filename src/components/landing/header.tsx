@@ -46,13 +46,19 @@ const mobileNavLinks = [
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
-  const handleMobileLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const targetId = href.substring(1);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+  };
+
+  const handleMobileLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    handleLinkClick(e, href);
     setIsMobileMenuOpen(false);
   };
 
@@ -71,17 +77,16 @@ export default function Header() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="#home"
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
-                    )}
-                  >
-                    Home
-                  </Link>
-                </NavigationMenuLink>
+                <a
+                  href="#home"
+                  onClick={(e) => handleLinkClick(e, '#home')}
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
+                  )}
+                >
+                  Home
+                </a>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
@@ -94,7 +99,7 @@ export default function Header() {
                       <h3 className="mb-2 text-sm font-semibold">Bestsellers</h3>
                       <ul className="space-y-1">
                         {bestsellers.map((item) => (
-                          <ListItem key={item.title} href={item.href} title={item.title} />
+                          <ListItem key={item.title} href={item.href} title={item.title} onClick={(e) => handleLinkClick(e, item.href)} />
                         ))}
                       </ul>
                     </div>
@@ -102,7 +107,7 @@ export default function Header() {
                       <h3 className="mb-2 text-sm font-semibold">Categories</h3>
                       <ul className="space-y-1">
                         {categories.map((item) => (
-                          <ListItem key={item.title} href={item.href} title={item.title} />
+                          <ListItem key={item.title} href={item.href} title={item.title} onClick={(e) => handleLinkClick(e, item.href)} />
                         ))}
                       </ul>
                     </div>
@@ -111,45 +116,42 @@ export default function Header() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="#about"
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
-                    )}
-                  >
-                    About
-                  </Link>
-                </NavigationMenuLink>
+                <a
+                  href="#about"
+                  onClick={(e) => handleLinkClick(e, '#about')}
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
+                  )}
+                >
+                  About
+                </a>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="#testimonials"
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
-                    )}
-                  >
-                    Testimonials
-                  </Link>
-                </NavigationMenuLink>
+                <a
+                  href="#testimonials"
+                  onClick={(e) => handleLinkClick(e, '#testimonials')}
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
+                  )}
+                >
+                  Testimonials
+                </a>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="#contact"
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
-                    )}
-                  >
-                    Contact
-                  </Link>
-                </NavigationMenuLink>
+                 <a
+                  href="#contact"
+                  onClick={(e) => handleLinkClick(e, '#contact')}
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
+                  )}
+                >
+                  Contact
+                </a>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -173,14 +175,14 @@ export default function Header() {
                 </SheetHeader>
                 <nav className="mt-4 flex flex-col space-y-4">
                   {mobileNavLinks.map(({ href, label }) => (
-                    <Link
+                    <a
                       key={href}
                       href={href}
                       className="text-lg"
                       onClick={(e) => handleMobileLinkClick(e, href)}
                     >
                       {label}
-                    </Link>
+                    </a>
                   ))}
                 </nav>
               </SheetContent>
@@ -193,13 +195,13 @@ export default function Header() {
 }
 
 const ListItem = React.forwardRef<
-  React.ElementRef<typeof Link>,
-  React.ComponentPropsWithoutRef<typeof Link> & { title: string }
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
-        <Link
+        <a
           ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
@@ -213,7 +215,7 @@ const ListItem = React.forwardRef<
               {children}
             </p>
           )}
-        </Link>
+        </a>
       </NavigationMenuLink>
     </li>
   )
