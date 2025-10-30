@@ -55,9 +55,7 @@ const nextConfig: NextConfig = {
       }
     ],
   },
-  devServer: {
-    allowedHosts: ["*"],
-  },
+
 };
 
 export default nextConfig;
