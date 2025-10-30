@@ -1,6 +1,6 @@
 
 'use client';
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -17,36 +17,26 @@ const testimonials = [
   {
     name: "Sarah J.",
     avatar: "SJ",
-    image: "https://picsum.photos/100/100?random=1",
-    imageHint: "woman portrait",
     quote: "The Radical Rose is absolutely divine. It's my new signature scent and I get compliments everywhere I go. The fragrance lasts all day without being overpowering.",
   },
   {
     name: "Michael B.",
     avatar: "MB",
-    image: "https://picsum.photos/100/100?random=2",
-    imageHint: "man portrait",
     quote: "I purchased the Vanilla Powder and was blown away. It’s warm, comforting, and has a unique complexity. The customer service was also exceptional. Highly recommended!",
   },
   {
     name: "Jessica L.",
     avatar: "JL",
-    image: "https://picsum.photos/100/100?random=3",
-    imageHint: "woman portrait",
     quote: "Crystal Saffron is a masterpiece. It's spicy, sophisticated, and perfect for special occasions. Kaab Fragrances has a customer for life in me. The quality is simply unmatched.",
   },
   {
     name: "Alex D.",
     avatar: "AD",
-    image: "https://picsum.photos/100/100?random=4",
-    imageHint: "person portrait",
     quote: "Oud Wood is pure luxury. The scent is rich, deep, and incredibly long-lasting. I feel like royalty whenever I wear it. I'll definitely be exploring more from the collection.",
   },
   {
     name: "Emily R.",
     avatar: "ER",
-    image: "https://picsum.photos/100/100?random=5",
-    imageHint: "woman smiling",
     quote: "I am in love with the Sunkissed Citrus. It's so fresh and uplifting, perfect for daytime wear. It's like a bottle of sunshine! I'm so glad I found this brand.",
   },
 ];
@@ -83,7 +73,6 @@ export default function TestimonialsSection() {
                     <Card className="h-full overflow-hidden">
                       <CardContent className="flex h-full flex-col items-center justify-center p-6 text-center">
                         <Avatar className="mb-4 h-20 w-20">
-                          <AvatarImage src={testimonial.image} alt={testimonial.name} data-ai-hint={testimonial.imageHint} />
                           <AvatarFallback>{testimonial.avatar}</AvatarFallback>
                         </Avatar>
                         <p className="text-base italic text-muted-foreground">
