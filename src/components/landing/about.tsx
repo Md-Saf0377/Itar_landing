@@ -1,31 +1,6 @@
 
 import Image from 'next/image';
-import { Leaf, Droplets, Flower } from 'lucide-react';
 import FadeInSection from './fade-in-section';
-
-const ingredients = [
-  {
-    name: 'Rose',
-    icon: Flower,
-    image: 'https://picsum.photos/seed/rose/400/400',
-    hint: 'rose flower',
-    delay: 'delay-100'
-  },
-  {
-    name: 'Saffron',
-    icon: Leaf,
-    image: 'https://picsum.photos/seed/saffron/400/400',
-    hint: 'saffron spice',
-    delay: 'delay-300'
-  },
-  {
-    name: 'Oud',
-    icon: Droplets,
-    image: 'https://picsum.photos/seed/oud/400/400',
-    hint: 'oud wood',
-    delay: 'delay-500'
-  }
-]
 
 export default function AboutSection() {
   return (
@@ -44,34 +19,17 @@ export default function AboutSection() {
               </div>
             </FadeInSection>
           </div>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-             {ingredients.slice(0, 2).map((ingredient, index) => (
-              <FadeInSection key={ingredient.name} className={`transition-all duration-700 ${ingredient.delay}`}>
-                <div className="relative aspect-square overflow-hidden rounded-xl shadow-lg">
-                  <Image
-                    src={ingredient.image}
-                    alt={ingredient.name}
-                    fill
-                    data-ai-hint={ingredient.hint}
-                    className="object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                </div>
-              </FadeInSection>
-            ))}
-             <FadeInSection className={`transition-all duration-700 ${ingredients[2].delay} col-span-2 sm:col-span-1`}>
-                <div className="relative aspect-square overflow-hidden rounded-xl shadow-lg">
-                  <Image
-                    src={ingredients[2].image}
-                    alt={ingredients[2].name}
-                    fill
-                    data-ai-hint={ingredients[2].hint}
-                    className="object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                </div>
-              </FadeInSection>
-          </div>
+          <FadeInSection>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg">
+              <Image
+                src="https://picsum.photos/seed/perfumery/600/450"
+                alt="The art of perfumery"
+                fill
+                data-ai-hint="perfume ingredients"
+                className="object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+          </FadeInSection>
         </div>
       </div>
     </section>
