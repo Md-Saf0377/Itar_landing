@@ -22,7 +22,7 @@ export default function AboutSection() {
           <FadeInSection>
             <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg">
               <Image
-                src="https://picsum.photos/seed/perfumery/600/450"
+                src="/images/storysec.png"
                 alt="The art of perfumery"
                 fill
                 data-ai-hint="perfume ingredients"
