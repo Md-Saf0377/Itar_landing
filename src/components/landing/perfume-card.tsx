@@ -42,6 +42,12 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
     setSelectedSize(size);
   };
 
+  const handleBuyNowClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.open(whatsappLink, '_blank');
+  };
+
   return (
     <TooltipProvider>
       <Link
@@ -100,24 +106,13 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
                 >
                   Add to Cart
                 </Button>
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    window.open(whatsappLink, '_blank');
-                  }}
-                  className="w-full"
+                <Button
+                    variant="secondary"
+                    className="w-full"
+                    onClick={handleBuyNowClick}
                 >
-                  <Button
-                      variant="secondary"
-                      className="w-full"
-                  >
-                      Buy Now
-                  </Button>
-                </a>
+                    Buy Now
+                </Button>
             </CardFooter>
           </Card>
       </Link>
