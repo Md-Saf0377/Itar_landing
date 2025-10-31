@@ -7,14 +7,12 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
   SheetFooter,
-  SheetDescription,
+  SheetTrigger,
 } from "@/components/ui/sheet";
 import { useCart } from "@/context/cart-context";
 import { ShoppingCart, Trash2 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
 
@@ -22,7 +20,8 @@ export default function CartSheet() {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
   const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-  const checkoutMailtoLink = `mailto:imadhussain9@gmail.com?subject=Order Inquiry&body=I would like to purchase the following items:%0A%0A${cartItems.map(item => `${item.quantity}x ${item.name} (${item.size}ml)`).join('%0A')}%0A%0APlease provide me with payment and shipping details.`;
+  const checkoutMessage = `I would like to purchase the following items:\n\n${cartItems.map(item => `${item.quantity}x ${item.name} (${item.size}ml)`).join('\n')}\n\nPlease provide me with payment and shipping details.`;
+  const checkoutWhatsappLink = `https://wa.me/918088603853?text=${encodeURIComponent(checkoutMessage)}`;
 
   return (
     <Sheet>
@@ -46,7 +45,8 @@ export default function CartSheet() {
             <div className="flex-1 overflow-y-auto pr-4">
               <ul className="space-y-4">
                 {cartItems.map((item) => {
-                  const buyNowMailtoLink = `mailto:imadhussain9@gmail.com?subject=Order for ${encodeURIComponent(item.name)}&body=I would like to purchase ${encodeURIComponent(item.quantity)}x ${encodeURIComponent(item.name)} (${item.size}ml). Please provide me with payment and shipping details.`;
+                  const buyNowMessage = `I would like to purchase ${item.quantity}x ${item.name} (${item.size}ml). Please provide me with payment and shipping details.`;
+                  const buyNowWhatsappLink = `https://wa.me/918088603853?text=${encodeURIComponent(buyNowMessage)}`;
                   return (
                     <li key={item.id} className="flex items-start gap-4">
                       <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-md">
@@ -78,7 +78,7 @@ export default function CartSheet() {
                           >
                             <Trash2 className="h-4 w-4 text-destructive" />
                           </Button>
-                          <a href={buyNowMailtoLink} onClick={(e) => e.stopPropagation()}>
+                          <a href={buyNowWhatsappLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
                             <Button variant="outline" size="sm" className="border border-black/20 bg-white/20 text-foreground backdrop-blur-sm hover:bg-black hover:text-white active:bg-black active:text-white dark:border-white/20 dark:bg-black/20 dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black" asChild={false}>Buy Now</Button>
                           </a>
                         </div>
@@ -90,7 +90,7 @@ export default function CartSheet() {
             </div>
             <Separator />
             <SheetFooter>
-                <a href={checkoutMailtoLink} className="w-full">
+                <a href={checkoutWhatsappLink} target="_blank" rel="noopener noreferrer" className="w-full">
                     <Button className="w-full" size="lg">Checkout</Button>
                 </a>
             </SheetFooter>

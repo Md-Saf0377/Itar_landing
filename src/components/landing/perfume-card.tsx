@@ -33,7 +33,8 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
   const { addToCart } = useCart();
   const [selectedSize, setSelectedSize] = useState<number>(sizes[0].size);
 
-  const mailtoLink = `mailto:imadhussain9@gmail.com?subject=Order for ${encodeURIComponent(name)} (${selectedSize}ml)&body=I would like to purchase ${encodeURIComponent(name)} (${selectedSize}ml). Please provide me with payment and shipping details.`;
+  const whatsappMessage = `I would like to purchase ${name} (${selectedSize}ml). Please provide me with payment and shipping details.`;
+  const whatsappLink = `https://wa.me/918088603853?text=${encodeURIComponent(whatsappMessage)}`;
 
   const handleSizeClick = (e: React.MouseEvent, size: number) => {
     e.preventDefault();
@@ -99,17 +100,24 @@ export default function PerfumeCard({ perfume }: PerfumeCardProps) {
                 >
                   Add to Cart
                 </Button>
-                <Button
-                    variant="secondary"
-                    className="w-full"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      window.location.href = mailtoLink;
-                    }}
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.open(whatsappLink, '_blank');
+                  }}
+                  className="w-full"
                 >
-                    Buy Now
-                </Button>
+                  <Button
+                      variant="secondary"
+                      className="w-full"
+                  >
+                      Buy Now
+                  </Button>
+                </a>
             </CardFooter>
           </Card>
       </Link>

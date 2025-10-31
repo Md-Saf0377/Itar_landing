@@ -54,7 +54,8 @@ export default function PerfumePage() {
   }
 
   const { name, description, imageUrl, imageHint } = perfume;
-  const mailtoLink = `mailto:imadhussain9@gmail.com?subject=Order for ${encodeURIComponent(name)} (${selectedSize}ml)&body=I would like to purchase ${encodeURIComponent(name)} (${selectedSize}ml). Please provide me with payment and shipping details.`;
+  const whatsappMessage = `I would like to purchase ${encodeURIComponent(name)} (${selectedSize}ml). Please provide me with payment and shipping details.`;
+  const whatsappLink = `https://wa.me/918088603853?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -109,7 +110,7 @@ export default function PerfumePage() {
                   >
                     Add to Cart
                   </Button>
-                  <a href={mailtoLink} className="w-full sm:w-auto">
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                     <Button
                       size="lg"
                       variant="secondary"
