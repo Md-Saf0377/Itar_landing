@@ -34,6 +34,13 @@ const categories = [
   { title: "Discovery Set", href: "#categories" },
 ]
 
+const navLinks = [
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#testimonials", label: "Testimonials" },
+  { href: "#contact", label: "Contact" },
+]
+
 const mobileNavLinks = [
   { href: "#home", label: "Home" },
   { href: "#bestsellers", label: "Bestsellers" },
@@ -76,18 +83,20 @@ export default function Header() {
         <div className="hidden flex-1 justify-center md:flex">
           <NavigationMenu>
             <NavigationMenuList>
-              <NavigationMenuItem>
-                <a
-                  href="#home"
-                  onClick={(e) => handleLinkClick(e, '#home')}
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
-                  )}
-                >
-                  Home
-                </a>
-              </NavigationMenuItem>
+              {navLinks.map(({ href, label }) => (
+                <NavigationMenuItem key={href}>
+                  <a
+                    href={href}
+                    onClick={(e) => handleLinkClick(e, href)}
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
+                    )}
+                  >
+                    {label}
+                  </a>
+                </NavigationMenuItem>
+              ))}
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black">
@@ -114,45 +123,6 @@ export default function Header() {
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <a
-                  href="#about"
-                  onClick={(e) => handleLinkClick(e, '#about')}
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
-                  )}
-                >
-                  About
-                </a>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <a
-                  href="#testimonials"
-                  onClick={(e) => handleLinkClick(e, '#testimonials')}
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
-                  )}
-                >
-                  Testimonials
-                </a>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                 <a
-                  href="#contact"
-                  onClick={(e) => handleLinkClick(e, '#contact')}
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
-                  )}
-                >
-                  Contact
-                </a>
-              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
         </div>
@@ -175,14 +145,14 @@ export default function Header() {
                 </SheetHeader>
                 <nav className="mt-4 flex flex-col space-y-4">
                   {mobileNavLinks.map(({ href, label }) => (
-                    <Link
+                    <a
                       key={href}
                       href={href}
                       className="text-lg"
-                      onClick={(e:any) => handleMobileLinkClick(e, href)}
+                      onClick={(e) => handleMobileLinkClick(e, href)}
                     >
                       {label}
-                    </Link>
+                    </a>
                   ))}
                 </nav>
               </SheetContent>
