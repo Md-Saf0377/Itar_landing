@@ -1,13 +1,12 @@
-
 "use client"
 import Link from 'next/link';
+import { useRouter } from 'next/navigation'; // <-- Ensure this is imported for App Router
 import { Leaf, Menu } from 'lucide-react';
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
-  NavigationMenuLink,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
@@ -52,21 +51,39 @@ const mobileNavLinks = [
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const router = useRouter(); 
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault(); 
+    
     if (href.startsWith('#')) {
-      e.preventDefault();
       const targetId = href.substring(1);
       const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+
+      // 1. Immediately close the menu (triggers the component re-render/unmount)
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
       }
+      
+      // Calculate delay: 400ms if the menu was open, 0ms otherwise
+      const delay = isMobileMenuOpen ? 400 : 0; // <-- INCREASED DELAY FOR STABILITY
+
+      // 2. Delay the scroll and router push until AFTER the mobile menu closes
+      setTimeout(() => {
+        if (targetElement) {
+          // Perform the smooth scroll
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Update the URL hash without triggering a scroll
+        router.push(`/#${targetId}`, { scroll: false }); 
+      }, delay);
     }
   };
 
   const handleMobileLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Calls the main handler, which now includes the mobile logic and delay
     handleLinkClick(e, href);
-    setIsMobileMenuOpen(false);
   };
 
 
@@ -85,16 +102,19 @@ export default function Header() {
             <NavigationMenuList>
               {navLinks.map(({ href, label }) => (
                 <NavigationMenuItem key={href}>
-                  <a
+                  <Link
                     href={href}
                     onClick={(e) => handleLinkClick(e, href)}
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "bg-transparent hover:bg-accent hover:text-accent-foreground"
-                    )}
+                    prefetch={false}
+                    scroll={false} 
                   >
-                    {label}
-                  </a>
+                    <span className={cn(
+                        navigationMenuTriggerStyle(),
+                        "bg-transparent hover:bg-accent hover:text-accent-foreground"
+                      )}>
+                      {label}
+                    </span>
+                  </Link>
                 </NavigationMenuItem>
               ))}
 
@@ -108,7 +128,12 @@ export default function Header() {
                       <h3 className="mb-2 text-sm font-semibold">Bestsellers</h3>
                       <ul className="space-y-1">
                         {bestsellers.map((item) => (
-                          <ListItem key={item.title} href={item.href} title={item.title} onClick={(e) => handleLinkClick(e, item.href)} />
+                          <ListItem 
+                            key={item.title} 
+                            href={item.href} 
+                            title={item.title} 
+                            onClick={(e) => handleLinkClick(e, item.href)} 
+                          />
                         ))}
                       </ul>
                     </div>
@@ -116,7 +141,12 @@ export default function Header() {
                       <h3 className="mb-2 text-sm font-semibold">Categories</h3>
                       <ul className="space-y-1">
                         {categories.map((item) => (
-                          <ListItem key={item.title} href={item.href} title={item.title} onClick={(e) => handleLinkClick(e, item.href)} />
+                          <ListItem 
+                            key={item.title} 
+                            href={item.href} 
+                            title={item.title} 
+                            onClick={(e) => handleLinkClick(e, item.href)} 
+                          />
                         ))}
                       </ul>
                     </div>
@@ -145,14 +175,17 @@ export default function Header() {
                 </SheetHeader>
                 <nav className="mt-4 flex flex-col space-y-4">
                   {mobileNavLinks.map(({ href, label }) => (
-                    <a
+                    <Link
                       key={href}
                       href={href}
-                      className="text-lg"
                       onClick={(e) => handleMobileLinkClick(e, href)}
+                      prefetch={false}
+                      scroll={false} 
                     >
-                      {label}
-                    </a>
+                      <span className="text-lg">
+                        {label}
+                      </span>
+                    </Link>
                   ))}
                 </nav>
               </SheetContent>
@@ -170,23 +203,21 @@ const ListItem = React.forwardRef<
 >(({ className, title, children, ...props }, ref) => {
   return (
     <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          {children && (
-            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-              {children}
-            </p>
-          )}
-        </a>
-      </NavigationMenuLink>
+      <a
+        ref={ref}
+        className={cn(
+          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+          className
+        )}
+        {...props}
+      >
+        <div className="text-sm font-medium leading-none">{title}</div>
+        {children && (
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        )}
+      </a>
     </li>
   )
 })
