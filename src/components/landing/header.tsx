@@ -175,14 +175,14 @@ export default function Header() {
                 </SheetHeader>
                 <nav className="mt-4 flex flex-col space-y-4">
                   {mobileNavLinks.map(({ href, label }) => (
-                    <a
+                    <Link
                       key={href}
                       href={href}
                       className="text-lg"
-                      onClick={(e) => handleMobileLinkClick(e, href)}
+                      onClick={(e:any) => handleMobileLinkClick(e, href)}
                     >
                       {label}
-                    </a>
+                    </Link>
                   ))}
                 </nav>
               </SheetContent>
