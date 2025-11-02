@@ -90,7 +90,7 @@ export default function Header() {
                     onClick={(e) => handleLinkClick(e, href)}
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black"
+                      "bg-transparent hover:bg-accent hover:text-accent-foreground"
                     )}
                   >
                     {label}
@@ -99,7 +99,7 @@ export default function Header() {
               ))}
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="hover:bg-black hover:text-white active:bg-black active:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white dark:active:text-black">
+                <NavigationMenuTrigger className="bg-transparent hover:bg-accent hover:text-accent-foreground">
                   Shop
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
